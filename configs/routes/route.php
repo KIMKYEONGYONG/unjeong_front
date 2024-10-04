@@ -21,7 +21,7 @@ return static function(App $app) {
 
     $app->get('/auth/login',[MainController::class,'loginView'])->add(GuestMiddleware::class);
     $app->get('/auth/logout', [MainController::class, 'logOut'])->add(AuthMiddleware::class);
-    $app->get('/', [MainController::class, 'index'])->add(AuthMiddleware::class);
+    $app->get('/', [MainController::class, 'index']);
 
     $app->post('/action/login',[ActionAuthController::class,'login']);
 
@@ -46,35 +46,8 @@ return static function(App $app) {
         });
 
 
-        // 통계 관리
-        $master->group('/report',function (RouteCollectorProxy $report){
-            $report->get('/date',[ReportController::class,'date']);
-            $report->get('/time',[ReportController::class,'time']);
-            $report->get('/week',[ReportController::class,'week']);
-            $report->get('/area',[ReportController::class,'area']);
-            $report->get('/device',[ReportController::class,'device']);
-        });
-
     })->add(AuthMiddleware::class);
 
-    $app->group('/action',function (RouteCollectorProxy $action){
-
-        $action->group('/apply',function (RouteCollectorProxy $apply){
-            // 문자발송관리
-            $apply->group('/sms',function (RouteCollectorProxy $sms){
-                $sms->post('/register',[ActionSmsController::class,'register']);
-                $sms->delete('/delete/{id:[0-9]+}',[ActionSmsController::class,'delete']);
-            });
-        });
-
-        // 게시판 관리
-        $action->group('/board',function (RouteCollectorProxy $board){
-            $board->post('/{boardType}/register',[ActionBoardController::class,'register']);
-            $board->post('/update/{id:[0-9]+}',[ActionBoardController::class,'update']);
-            $board->delete('/delete/{id:[0-9]+}',[ActionBoardController::class,'delete']);
-        });
-
-    })->add(AuthMiddleware::class);
 
     $app->group('/api',function (RouteCollectorProxy $api){
         // 공지사항
