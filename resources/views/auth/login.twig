@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="csrfName" name="{{ csrf.keys.name }}" content="{{ csrf.name }}">
+    <meta id="csrfValue" name="{{ csrf.keys.value }}" content="{{ csrf.value }}">
+    <meta name="viewport" content="user-scalable=no, initial-scale = 1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>운정역더써밋</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('auth') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('auth') }}
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/88bb875ea1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form name="loginFrm" id="loginFrm"  method="post">
+        <section class="login_wrap login">
+            <div class="top"><img src="{{ asset('dist/images/host/logo_m.png') }}" ></div>
+            <input name="userId" type="text" placeholder="아이디를 입력해주세요" />
+            <input name="password" type="password" placeholder="비밀번호를 입력해주세요" />
+            <div class="btn" id="loginBtn">로그인</div>
+            <div class="copyright">ⓒ 운정역더써밋</div>
+        </section>
+        <section class="bg_intro_mv">
+            <video data-autoplay="" loop muted="" playsinline="" autoplay>
+                <source src="{{ asset('dist/images/host/intro.mp4') }}" type="video/mp4">
+            </video>
+        </section>
+    </form>
+</body>
+</html>

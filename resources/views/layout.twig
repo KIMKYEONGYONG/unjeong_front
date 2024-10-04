@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="csrfName" name="{{ csrf.keys.name }}" content="{{ csrf.name }}">
+    <meta id="csrfValue" name="{{ csrf.keys.value }}" content="{{ csrf.value }}">
+    <meta name="viewport" content="user-scalable=no, initial-scale = 1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>운정역더써밋::관리자</title>
+    <script src="https://kit.fontawesome.com/88bb875ea1.js" crossorigin="anonymous"></script>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+{% endblock %}
+</head>
+<body>
+    <section class="menu_wrap">
+        <div class="inbox">
+            <div class="top moveUrl" data-url="/"><img src="{{ asset('dist/images/host/logo_w.png') }}" alt="logo"></div>
+            <div class="member">
+                {{auth.name}}님<div class="logout moveUrl" data-url="/auth/logout">logout</div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i>관심고객관리</li>
+                    <li>
+                        <dl class="moveUrl" data-url="/apply/client/list" data-url-form="/apply/client/">관심고객목록</dl>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li><i class="fa-solid fa-file-pen"></i>운영관리</li>
+                    <li>
+                        <dl class="moveUrl"  data-url="/board/notice/list" data-url-form="/board/notice/">공지사항</dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="back"></div>
+    </section>
+    <section class="navi_wrap">
+        {% block navi %}{% endblock %}
+    </section>
+    <section class="contents_wrap">
+        {% set _currentPath = request.uri.path %}
+        {% set _currentParams = request.queryparams %}
+        {% block content %}{% endblock %}
+    </section>
+
+    {% block layer %}{% endblock %}
+    {% block loading %}
+        <section class="ys_pageloading_wrap" style="display:none;">
+            <section class="box">
+                <section class="ys_pageloader"></section>
+                <section class="txt">처리중입니다. 잠시만기다려주세요.</section>
+            </section>
+            <div class="bg"></div>
+        </section>
+    {% endblock %}
+</body>
+</html>

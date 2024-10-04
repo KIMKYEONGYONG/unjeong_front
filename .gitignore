@@ -1,0 +1,9 @@
+/.idea
+/vendor
+/.env
+/public/dist
+/storage
+/node_modules
+/composer.lock
+/password_.php
+/package-lock.json
