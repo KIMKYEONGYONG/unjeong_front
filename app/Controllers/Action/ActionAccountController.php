@@ -15,6 +15,7 @@ use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use ReflectionException;
 
 class ActionAccountController
 {
@@ -28,6 +29,7 @@ class ActionAccountController
     /**
      * @throws OptimisticLockException
      * @throws ORMException
+     * @throws ReflectionException
      */
     public function register(Request $request, Response $response): Response
     {
@@ -35,6 +37,7 @@ class ActionAccountController
             $request->getParsedBody()
         );
         $this->certificationService->phoneForAuthNoRemoveAll($data['phone']);
+        $this->service->register($data);
         return $response;
     }
 }

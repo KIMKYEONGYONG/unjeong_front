@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controllers\Action\ActionAccountController;
 use App\Controllers\Action\ActionAuthController;
 use App\Controllers\Action\ActionCertNoController;
 use App\Controllers\Action\ActionClientController;
@@ -85,7 +86,7 @@ return static function(App $app) {
 
             $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms'])->add(GuestMiddleware::class);
             $menu8->get('/signup',[Menu8Controller::class,'signup'])->add(GuestMiddleware::class);
-            $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete'])->add(GuestMiddleware::class);
+            $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete']);
             $menu8->get('/member_notice/list',[Menu8Controller::class,'notice'])->add(AuthMiddleware::class);
             $menu8->get('/member_notice/detail/{id:[0-9]+}',[Menu8Controller::class,'noticeDetail'])->add(AuthMiddleware::class);
 
@@ -101,6 +102,9 @@ return static function(App $app) {
         $action->post('/phone/authNo/request/{mode:[0-9]+}',[ActionCertNoController::class,'sendCertNumber']);
         $action->post('/phone/authNo/check/{mode:[0-9]+}',[ActionCertNoController::class,'certNoCheck']);
 
+        $action->group('/account',function (RouteCollectorProxy $account){
+            $account->post('/create',[ActionAccountController::class,'register']);
+        });
 
     });
 

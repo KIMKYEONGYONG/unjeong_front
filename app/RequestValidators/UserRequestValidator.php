@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\RequestValidators;
 
 
+use App\Core\EntityManager\DefaultEntityManager;
+use App\Core\JsonFormatter;
 use App\Entity\HpAuthMember;
 use App\Entity\Member;
 use App\Enum\ActionMode;
@@ -19,9 +21,8 @@ use Valitron\Validator;
 
 class UserRequestValidator implements RequestValidatorInterface
 {
-    use EntityServiceTrait;
-
     public function __construct(
+        private readonly DefaultEntityManager $entityManager,
         private readonly SessionInterface $session,
         private readonly HpCertificationService $service,
     ) {
@@ -40,14 +41,16 @@ class UserRequestValidator implements RequestValidatorInterface
         $data['agree'] = $this->session->get('agree');
         $v = new Validator($data);
 
+        $v->addInstanceRule('idCheck',
+            fn($field, $value, array $params, array $fields) =>! $userRepo->isExistenceId($value),
+            '이미 가입된 {field} 입니다'
+        );
+
         $v->addInstanceRule('phoneCheck',
             fn($field, $value, array $params, array $fields) =>! $userRepo->isExistencePhone($value),
             '이미 가입된 {field} 입니다'
         );
-        $v->addInstanceRule('byPhoneIdCheck',
-            fn($field, $value, array $params, array $fields) =>! $userRepo->isExistenceId(str_replace('-','',$value)),
-            '해당 {field}는 다른 회원이 사용하고 있습니다.<br>고객센터로 문의 부탁드립니다.'
-        );
+
 
         $v->addInstanceRule('authNoConfirm',
             fn($field, $value, array $params, array $fields) => $hpAuthMember?->getIsAuth() === 'T',
@@ -55,7 +58,12 @@ class UserRequestValidator implements RequestValidatorInterface
 
 
         $rules = [
-            'phone' => ['required','cellphone','phoneCheck','authNoConfirm','byPhoneIdCheck'],
+            'userId' => ['required','idCheck'],
+            'password' => ['required'],
+            'phone' => ['required','cellphone','phoneCheck','authNoConfirm'],
+            'name' => ['required',['lengthMax', 20]],
+            'birthDay' => ['required',['length', 8]],
+            'addr' => ['required',['lengthMax', 255]],
         ];
         $v->mapFieldsRules($rules);
 
@@ -63,9 +71,13 @@ class UserRequestValidator implements RequestValidatorInterface
 
         $v->labels(
             [
-
+                'userId' => '아이디',
+                'password' => '비밀번호',
+                'name' => '이름',
+                'birthDay' => '생년월일',
                 'phone' => '휴대폰 번호',
-                'authenticationNum' => '인증번호'
+                'addr' => '주소',
+                'authenticationNum' => '인증번호',
             ]
         );
         if (!$v->validate()) {

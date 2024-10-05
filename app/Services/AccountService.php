@@ -6,21 +6,18 @@ declare(strict_types=1);
 namespace App\Services;
 
 
+use App\Core\EntityManager\DefaultEntityManager;
 use App\Core\EntityMapper;
 use App\Entity\Member;
 use App\Interfaces\AuthInterface;
 use App\Repository\UserRepository;
-use App\Traits\EntityServiceTrait;
-use Doctrine\ORM\Exception\ORMException;
-use Doctrine\ORM\OptimisticLockException;
 use ReflectionException;
 
 class AccountService
 {
-    use EntityServiceTrait;
-
     private UserRepository $userRepository;
     public function __construct(
+        private readonly DefaultEntityManager $entityManager,
         private readonly EntityMapper $entityMapper,
         private readonly AuthInterface $auth,
 
@@ -29,12 +26,12 @@ class AccountService
     }
 
     /**
-     * @throws ReflectionException | OptimisticLockException | ORMException
+     * @throws ReflectionException
      */
     public function register(array $data): Member
     {
         /** @var Member $user */
-        $user = $this->entityMapper->mapper(Member::class,$data,['password'], ['source']);
+        $user = $this->entityMapper->mapper(Member::class,$data,['password']);
         $this->userRepository->register($user,$data);
 
         $this->auth->attemptLogin($data);

@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Interfaces\AuthUserInterface;
+use App\Interfaces\EntityInterface;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
@@ -16,7 +17,7 @@ use Doctrine\ORM\Mapping\Table;
 
 #[Entity(repositoryClass: UserRepository::class)]
 #[Table('member')]
-class Member implements AuthUserInterface
+class Member implements AuthUserInterface, EntityInterface
 {
     #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
     private int $id;

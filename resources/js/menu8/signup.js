@@ -2,6 +2,7 @@ import $ from "jquery"
 import Swal from "sweetalert2";
 import {isDefined} from "../modules/typecheck";
 import {AuthMode, confirmAuthNo, requestAuthNo} from "../modules/phone_auth";
+import {post} from "../modules/ajax";
 
 $(function() {
 
@@ -11,6 +12,7 @@ $(function() {
     const phone = document.querySelector('input[name="phone"]');
     const phoneCheckNum = document.getElementById('phoneCheckNum');
     const resend = document.getElementById('resend');
+    const registerBtn = document.getElementById('registerBtn');
 
     if (isDefined(phoneCheck)) {
         requestAuthNo(
@@ -66,6 +68,20 @@ $(function() {
             $authenticationNum.prop('readonly', true);
         });
     }
+
+
+    registerBtn.addEventListener('click',async function(){
+        const formData = new FormData(document.querySelector('form'));
+
+        formData.append('phone', $('input[name="phone"]').val())
+        formData.append('authenticationNum', $('input[name="authenticationNum"]').val())
+
+        post('/action/account/create',formData,'formData').then(response => {
+            if (response.ok) {
+                location.replace('/menu8/signup_complete');
+            }
+        });
+    });
 
 
 });
