@@ -8,6 +8,9 @@
 
 	{% block mobile_sub_menu %}
 		{% embed 'mobile_sub_menu.twig' %}
+			{% block sub_main_btn %}
+				{% include "menu1/mo_sub_main_btn.twig" %}
+			{% endblock %}
 			{% block sub_menu %}
 				<div class='sub-menu-container'>
 					<button class='sub-menu-btn' id='subMenuBtn'>사업개요 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>

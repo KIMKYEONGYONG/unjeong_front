@@ -1,7 +1,8 @@
 <div class='mobile-sub-menu'>
   <a href='/' class='home-link'><img src='{{ asset('dist/images/ic_home.svg') }}' alt='홈 링크 이미지' /></a>
   <div class='main-menu-container'>
-    <button class='main-menu-btn' id='mainMenuBtn'>운정역더써밋 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+    {% block sub_main_btn %}
+    {% endblock %}
     <ul class='list-menu' id='mainMenuList'>
       <li><a href='/menu1/business'>운정역더써밋</a></li>
       <li><a href='/menu2/intro'>프리미엄</a></li>

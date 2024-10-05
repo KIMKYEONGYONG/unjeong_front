@@ -7,6 +7,9 @@
 
   {% block mobile_sub_menu %}
       {% embed 'mobile_sub_menu.twig' %}
+		  {% block sub_main_btn %}
+			  {% include "menu4/mo_sub_main_btn.twig" %}
+		  {% endblock %}
           {% block sub_menu %}
               <div class='sub-menu-container'>
                   <button class='sub-menu-btn' id='subMenuBtn'>평면안내 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>

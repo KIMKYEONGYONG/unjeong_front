@@ -6,18 +6,21 @@
 
 
 	{% block mobile_sub_menu %}
-      {% embed 'mobile_sub_menu.twig' %}
-        {% block sub_menu %}
-          <div class='sub-menu-container'>
-            <button class='sub-menu-btn' id='subMenuBtn'>단지배치도 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
-            {% include "menu3/mo_sub_menu.twig" %}
-          </div>
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
+		{% embed 'mobile_sub_menu.twig' %}
+			{% block sub_main_btn %}
+				{% include "menu3/mo_sub_main_btn.twig" %}
+			{% endblock %}
+			{% block sub_menu %}
+				<div class='sub-menu-container'>
+					<button class='sub-menu-btn' id='subMenuBtn'>단지배치도 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+					{% include "menu3/mo_sub_menu.twig" %}
+				</div>
+			{% endblock %}
+		{% endembed %}
+	{% endblock %}
 
 
-<div class="page-nav-mobile-container">
+	<div class="page-nav-mobile-container">
 		<div class="page-nav-mobile">
 			단지배치도
 		</div>
@@ -39,8 +42,8 @@
 	</div>
 
 
-  <!-- page content -->
-  
+	<!-- page content -->
+
 	{% include "footer.twig" %}
 
 {% endblock %}
