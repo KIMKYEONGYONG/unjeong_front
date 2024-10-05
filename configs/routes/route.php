@@ -2,16 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Controllers\Action\ActionAuthController;
-use App\Controllers\Action\ActionBoardController;
-use App\Controllers\Action\ActionClientController;
-use App\Controllers\Action\ActionSmsController;
-use App\Controllers\BoardController;
-use App\Controllers\ClientController;
 use App\Controllers\MainController;
-use App\Controllers\ReadFileController;
-use App\Controllers\ReportController;
-use App\Controllers\SmsController;
+use App\Controllers\Menu1Controller;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
 use Slim\App;
@@ -26,7 +18,12 @@ return static function(App $app) {
 
     $app->group('',function (RouteCollectorProxy $front){
 
-
+        // 관심고객관리
+        $front->group('/menu1',function (RouteCollectorProxy $menu1){
+            $menu1->get('/business',[Menu1Controller::class,'business']);
+            $menu1->get('/architechture',[Menu1Controller::class,'architechture']);
+            $menu1->get('/location',[Menu1Controller::class,'location']);
+        });
 
     });
 
