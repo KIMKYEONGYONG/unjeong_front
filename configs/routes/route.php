@@ -11,6 +11,7 @@ use App\Controllers\Menu4Controller;
 use App\Controllers\Menu5Controller;
 use App\Controllers\Menu6Controller;
 use App\Controllers\Menu7Controller;
+use App\Controllers\Menu8Controller;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
 use Slim\App;
@@ -72,10 +73,13 @@ return static function(App $app) {
 
         $front->group('/menu7',function (RouteCollectorProxy $menu7){
             $menu7->get('/login',[Menu7Controller::class,'login']);
-
         });
 
+        $front->group('/menu8',function (RouteCollectorProxy $menu8){
 
+            $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms']);
+
+        });
 
     });
 
