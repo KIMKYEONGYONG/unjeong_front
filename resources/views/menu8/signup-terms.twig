@@ -1,4 +1,8 @@
 {% extends "layout.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('signup_terms')}}
+{% endblock %}
 {% block content %}
     {% include "menu7/top_menu.twig" %}
 
@@ -24,7 +28,7 @@
     <div class='page-content-container'>
         {% include "menu7/tab_page_login.twig" %}
 
-        <form action=''>
+        <form method='post'>
             <div class='login-container large'>
                 <img src="{{ asset('dist/images/business-logo.svg') }}" alt="써밋 로고" class="member-logo" />
                 <div class="mobile-title">이용약관 동의</div>
@@ -166,7 +170,7 @@
                 </pre>
                             </div>
                             <div class="radio-container justify-center">
-                                <input type="radio" id="agree2" name="term2" value="" />
+                                <input type="radio" id="agree2" name="term2" value="1" />
                                 <label for="agree2">동의합니다</label>
 
                                 <input type="radio" id="reject2" name="term2" value="" />
@@ -199,7 +203,7 @@ ID, 성명, 생년월일, 비밀번호, 주소, 휴대폰 번호
                 </pre>
                             </div>
                             <div class="radio-container justify-center">
-                                <input type="radio" id="agree3" name="term3" value="" />
+                                <input type="radio" id="agree3" name="term3" value="1" />
                                 <label for="agree3">동의합니다</label>
 
                                 <input type="radio" id="reject3" name="term3" value="" />
@@ -208,7 +212,7 @@ ID, 성명, 생년월일, 비밀번호, 주소, 휴대폰 번호
                         </div>
 
                         <div class='login-button-container'>
-                            <div  class='btn-primary full'>다음</div>
+                            <div class='btn-primary full'>다음</div>
                         </div>
                     </div>
                 </div>

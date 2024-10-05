@@ -25,5 +25,15 @@ class Menu8Controller extends Controller
         return $this->render($this->twig,$response,'menu8/signup-terms.twig');
     }
 
+    public function signup(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu8/signup.twig');
+    }
+
+
+    public function signup_complete(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu8/signup-complete.twig');
+    }
 
 }

@@ -78,6 +78,8 @@ return static function(App $app) {
         $front->group('/menu8',function (RouteCollectorProxy $menu8){
 
             $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms']);
+            $menu8->get('/signup',[Menu8Controller::class,'signup']);
+            $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete']);
 
         });
 
