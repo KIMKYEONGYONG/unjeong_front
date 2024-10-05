@@ -1,6 +1,6 @@
 <div class="page-nav-container">
     <ul class="page-nav">
-        <li class="{{ _currentPath == '/menu4/floorplanA' ? 'active' : '' }}"><a href="/menu4/floorplanA">평면안내</a></li>
-        <li class="{{ _currentPath == '/menu4/interior' ? 'active' : '' }}"><a href="/menu4/interior">인테리어</a></li>
+        <li class="{{ 'menu4/floorplan' in _currentPath ? 'active' : '' }}"><a href="/menu4/floorplanA">평면안내</a></li>
+        <li class="{{ 'menu4/interior' in _currentPath ? 'active' : '' }}"><a href="/menu4/interior">인테리어</a></li>
     </ul>
 </div>
