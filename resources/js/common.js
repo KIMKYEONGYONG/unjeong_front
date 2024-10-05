@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { post } from "./modules/ajax";
 
 $(function() {
+    checkPopBg();
 
     $(document).on("click",".ajaxRequest",function(){
         const ajaxUrl = $(this).attr('data-ajax-url');
@@ -42,5 +43,43 @@ $(function() {
             }
         });
     });
+
+    $(document).on("click", ".popup .popup-ui .check", function(){
+        $(this).parent().parent().parent().remove();
+        checkPopBg();
+        if( getCookie('Cookie_UN') === null){
+            let tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            setCookie('Cookie_UN', 'Y', tomorrow, '/', document.domain );
+        }
+    });
+
+    function checkPopBg(){
+        const popBg = $('.popup');
+        getCookie('Cookie_UN') !== null ? popBg.hide() : popBg.show();
+    }
+
+    function setCookie(cookieName, cookieValue, cookieExpire, cookiePath, cookieDomain, cookieSecure){
+        let cookieText = cookieName + '=' + cookieValue;
+        cookieText+=(cookieExpire ? '; EXPIRES='+cookieExpire.toGMTString() : '');
+        cookieText+=(cookiePath ? '; PATH='+cookiePath : '');
+        cookieText+=(cookieDomain ? '; DOMAIN='+cookieDomain : '');
+        cookieText+=(cookieSecure ? '; SECURE' : '');
+        document.cookie=cookieText;
+    }
+
+    function getCookie(cookieName){
+        let cookieValue = null;
+        if(document.cookie){
+            let array=document.cookie.split((cookieName+'='));
+            if(array.length >= 2){
+                let arraySub=array[1].split(';');
+                cookieValue=arraySub[0];
+            }
+        }
+        return cookieValue;
+    }
+
+
 
 });

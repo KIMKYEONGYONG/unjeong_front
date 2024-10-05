@@ -8,8 +8,10 @@
 import "../css/styles.css";
 import swiper from "swiper"
 
-window.$(function(){
+$(function(){
     try {
+
+
         window.AOS.init();
 
         // header

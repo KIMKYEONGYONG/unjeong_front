@@ -1,7 +1,7 @@
 {% extends "layout.twig" %}
 {% block javascripts %}
   {{ parent() }}
-  {{ encore_entry_script_tags('signup_terms')}}
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 {% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
@@ -40,29 +40,29 @@
               <div class="form-group">
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_person.svg') }}" alt="" class="input-icon" />
-                  <input type="text" placeholder="아이디" />
+                  <input name="userId" type="text" placeholder="아이디" />
                   <button class="btn-secondary">중복확인</button>
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_lock.svg') }}" alt="" class="input-icon" />
-                  <input type="password" placeholder="비밀번호" />
+                  <input name="name" type="password" placeholder="비밀번호" />
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_person.svg') }}" alt="" class="input-icon" />
-                  <input type="text" placeholder="이름" />
+                  <input name="name" type="text" placeholder="이름" />
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_cal.svg') }}" alt="" class="input-icon" />
-                  <input type="tel" placeholder="생년월일 8자리" />
+                  <input name="birthday" type="tel" placeholder="생년월일 8자리(숫자만)" />
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_mobile_phone.svg') }}" alt="" class="input-icon" />
-                  <input type="tel" placeholder="휴대전화 번호" />
+                  <input name="phone" type="tel" placeholder="휴대전화 번호(숫자만)" />
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_map_pin.svg') }}" alt="" class="input-icon" />
-                  <input type="text" placeholder="주소" disabled />
-                  <button class="btn-secondary">우편번호검색</button>
+                  <input name="addr" id="addr" type="text" placeholder="주소" disabled />
+                  <div class="btn-secondary" onclick="sample6_execDaumPostcode()">우편번호검색</div>
                 </div>
                 <div class="input-container" style="margin-top: -8px;">
                   <input type="text" placeholder="상세주소" />
@@ -71,9 +71,9 @@
                 <!-- 인증요청시 아래 주석 해제 -->
                 <div class='input-container icon'>
                   <img src="{{ asset('dist/images/ic_lock.svg') }}" alt="" class='input-icon' />
-                  <input type='tel' placeholder='인증번호 6자리 입력' />
+                  <input name="authNo" type='tel' placeholder='인증번호 6자리 입력' />
                 </div>
-                <a href="" class="request-pin">재요청</a>
+                <div class="request-pin">재요청</div>
               </div>
 
               <div class='login-button-container'>
@@ -84,10 +84,26 @@
             </div>
           </div>
         </div>
+      </div>
     </form>
   </div>
   <!-- page content -->
 
   {% include "footer.twig" %}
+  <script>
+    function sample6_execDaumPostcode() {
+      new daum.Postcode({
+        oncomplete: function(data) {
+          let addr = '';
+          if (data.userSelectedType === 'R') {
+            addr = data.roadAddress;
+          } else {
+            addr = data.jibunAddress;
+          }
 
+          document.getElementById("addr").value = addr;
+        }
+      }).open();
+    }
+  </script>
 {% endblock %}
