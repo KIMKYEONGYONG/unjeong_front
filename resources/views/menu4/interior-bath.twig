@@ -5,15 +5,16 @@
   {% include "menu4/pc_page_nav.twig" %}
 
 
-  {% block mobile_sub_menu %}
-      {% embed 'mobile_sub_menu.twig' %}
-          {% block sub_menu %}
-              <div class='sub-menu-container'>
-                  <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
-                  {% include "menu4/mo_sub_menu.twig" %}
-              </div>
-          {% endblock %}
-      {% endembed %}
+    {% block mobile_sub_menu %}
+        {% embed 'mobile_sub_menu.twig' %}
+            {% block sub_menu %}
+                <div class='sub-menu-container'>
+                    <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+                    {% include "menu4/mo_sub_menu.twig" %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
 
       <div class="page-nav-mobile-container">
           <div class="page-nav-mobile">

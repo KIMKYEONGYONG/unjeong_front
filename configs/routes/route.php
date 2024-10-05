@@ -48,10 +48,10 @@ return static function(App $app) {
             $menu4->get('/floorplanB',[Menu4Controller::class,'floorplanB']);
             $menu4->get('/floorplanB1',[Menu4Controller::class,'floorplanB1']);
             $menu4->get('/interior',[Menu4Controller::class,'interior']);
-            $menu4->get('/interior-bed',[Menu4Controller::class,'interior_bed']);
-            $menu4->get('/interior-dining',[Menu4Controller::class,'interior_dining']);
-            $menu4->get('/interior-bath',[Menu4Controller::class,'interior_bath']);
-            $menu4->get('/interior-etc',[Menu4Controller::class,'interior_etc']);
+            $menu4->get('/interior_bed',[Menu4Controller::class,'interior_bed']);
+            $menu4->get('/interior_dining',[Menu4Controller::class,'interior_dining']);
+            $menu4->get('/interior_bath',[Menu4Controller::class,'interior_bath']);
+            $menu4->get('/interior_etc',[Menu4Controller::class,'interior_etc']);
         });
 
     });

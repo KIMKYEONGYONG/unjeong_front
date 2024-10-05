@@ -1,68 +1,69 @@
 {% extends "layout.twig" %}
 {% block content %}
-  {% include "menu4/top_menu.twig" %}
+    {% include "menu4/top_menu.twig" %}
 
-  {% include "menu4/pc_page_nav.twig" %}
-
-
-  {% block mobile_sub_menu %}
-      {% embed 'mobile_sub_menu.twig' %}
-          {% block sub_menu %}
-              <div class='sub-menu-container'>
-                  <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
-                  {% include "menu4/mo_sub_menu.twig" %}
-              </div>
-          {% endblock %}
-      {% endembed %}
-
-      <div class="page-nav-mobile-container">
-          <div class="page-nav-mobile">
-              인테리어
-          </div>
-      </div>
-
-      <div class="page-content-container">
-          {% include "menu4/tab_page_interior.twig" %}
-          <div class="page-title-container" data-aos="fade-up">
-              <h1><span class="green">Bed Room</span></h1>
-              <p>
-                  편안함과 안락함을 선사하는 집, 삶의 질을 높여주는 최고의 선택입니다.
-              </p>
-          </div>
-
-          <div class="interior-img-container">
-              <div class="img-row">
-                  <div class="img-cont" data-aos="fade-up">
-                      <img src="{{ asset('dist/images/bedroom-img-1.png') }}" alt="">
-                      <div class="img-label">침실 1</div>
-                  </div>
-              </div>
-              <div class="img-row">
-                  <div class="img-cont" data-aos="fade-up">
-                      <img src="{{ asset('dist/images/bedroom-img-2.png') }}" alt="">
-                      <div class="img-label">침실 2</div>
-                  </div>
-              </div>
-              <div class="img-row">
-                  <div class="img-cont" data-aos="fade-up">
-                      <img src="{{ asset('dist/images/bedroom-img-3.png') }}" alt="">
-                      <div class="img-label">침실 3</div>
-                  </div>
-              </div>
-          </div>
+    {% include "menu4/pc_page_nav.twig" %}
 
 
-          <div class='division-line-subpage' data-aos='fade-up'></div>
+    {% block mobile_sub_menu %}
+        {% embed 'mobile_sub_menu.twig' %}
+            {% block sub_menu %}
+                <div class='sub-menu-container'>
+                    <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+                    {% include "menu4/mo_sub_menu.twig" %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
 
-          <ul class='notice-info' data-aos='fade-up'>
-              <li>본 홍보물에 사용된 사진, 이미지, 일러스트 등은 소비자의 이해를 돕기 위한 것으로 실제와 다소 차이가 있을 수 있으니 반드시 주택홍보관을 방문하시어 확인하시기 바랍니다.</li>
-              <li>주택홍보관에 시공된 제품 및 마감재는 자재 품절, 품귀, 생산중단, 제조회사의 도산 등의 부득이한 경우와 사업지의 시공여건 또는 신제품의 개발사에 따라 동질, 동가, 동급의 타사 제품으로 변경될 수 있습니다.</li>
-              <li>상기 인테리어 이미지 컷상의 연출된 디스플레이 용품 등은 소비자의 이해를 돕기 위한 것으로 분담금에 포함되지 않습니다.</li>
-              <li>옵션 및 디스플레이 품목이 포함되어있으므로 계약 시 주택홍보관에서 필히 확인 바랍니다.</li>
-          </ul>
-      </div>
-      <!-- page content -->
+    <div class="page-nav-mobile-container">
+        <div class="page-nav-mobile">
+            인테리어
+        </div>
+    </div>
 
-      {% include "footer.twig" %}
+    <div class="page-content-container">
+        {% include "menu4/tab_page_interior.twig" %}
+        <div class="page-title-container" data-aos="fade-up">
+            <h1><span class="green">Bed Room</span></h1>
+            <p>
+                편안함과 안락함을 선사하는 집, 삶의 질을 높여주는 최고의 선택입니다.
+            </p>
+        </div>
 
-  {% endblock %}
+        <div class="interior-img-container">
+            <div class="img-row">
+                <div class="img-cont" data-aos="fade-up">
+                    <img src="{{ asset('dist/images/bedroom-img-1.png') }}" alt="">
+                    <div class="img-label">침실 1</div>
+                </div>
+            </div>
+            <div class="img-row">
+                <div class="img-cont" data-aos="fade-up">
+                    <img src="{{ asset('dist/images/bedroom-img-2.png') }}" alt="">
+                    <div class="img-label">침실 2</div>
+                </div>
+            </div>
+            <div class="img-row">
+                <div class="img-cont" data-aos="fade-up">
+                    <img src="{{ asset('dist/images/bedroom-img-3.png') }}" alt="">
+                    <div class="img-label">침실 3</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class='division-line-subpage' data-aos='fade-up'></div>
+
+        <ul class='notice-info' data-aos='fade-up'>
+            <li>본 홍보물에 사용된 사진, 이미지, 일러스트 등은 소비자의 이해를 돕기 위한 것으로 실제와 다소 차이가 있을 수 있으니 반드시 주택홍보관을 방문하시어 확인하시기 바랍니다.</li>
+            <li>주택홍보관에 시공된 제품 및 마감재는 자재 품절, 품귀, 생산중단, 제조회사의 도산 등의 부득이한 경우와 사업지의 시공여건 또는 신제품의 개발사에 따라 동질, 동가, 동급의 타사 제품으로 변경될 수 있습니다.</li>
+            <li>상기 인테리어 이미지 컷상의 연출된 디스플레이 용품 등은 소비자의 이해를 돕기 위한 것으로 분담금에 포함되지 않습니다.</li>
+            <li>옵션 및 디스플레이 품목이 포함되어있으므로 계약 시 주택홍보관에서 필히 확인 바랍니다.</li>
+        </ul>
+    </div>
+    <!-- page content -->
+
+    {% include "footer.twig" %}
+
+{% endblock %}

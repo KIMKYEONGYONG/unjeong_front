@@ -5,53 +5,17 @@
   {% include "menu4/pc_page_nav.twig" %}
 
 
-  {% block mobile_sub_menu %}
-      {% embed 'mobile_sub_menu.twig' %}
-          {% block sub_menu %}
-              <div class='sub-menu-container'>
-                  <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
-                  {% include "menu4/mo_sub_menu.twig" %}
-              </div>
-          {% endblock %}
-      {% endembed %}
 
-  <!-- page content -->
-  <div class="top-visual-container">
-		<div class="top-visual menu4">
-			<h1>세대안내</h1>
-			<h2>UNJEONGYEOK THE SUMMIT</h2>
-		</div>
-	</div>
-
-	<div class="page-nav-container">
-		<ul class="page-nav">
-			<li class=""><a href="/views/menu4/floorplanA.html">평면안내</a></li>
-			<li class="active"><a href="/views/menu4/interior.html">인테리어</a></li>
-		</ul>
-	</div>
-
-	<div class='mobile-sub-menu'>
-    <a href='/views/index.html' class='home-link'><img src='/images/ic_home.svg' alt='홈 링크 이미지' /></a>
-    <div class='main-menu-container'>
-      <button class='main-menu-btn' id='mainMenuBtn'>세대안내 <img src='/images/ic_carat_down.svg' alt='' /></button>
-      <ul class='list-menu' id='mainMenuList'>
-        <li><a href='/views/menu1/business.html'>운정역더써밋</a></li>
-        <li><a href='/views/menu2/intro.html'>프리미엄</a></li>
-        <li><a href='/views/menu3/complex.html'>단지안내</a></li>
-        <li><a href='/views/menu4/floorplanA.html'>세대안내</a></li>
-        <li><a href='/views/menu5/news.html'>홍보센터</a></li>
-        <li><a href='/views/menu6/notice.html'>고객센터</a></li>
-        <li><a href='/views/menu7/login.html'>조합원 전용</a></li>
-      </ul>
-    </div>
-    <div class='sub-menu-container'>
-      <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='/images/ic_carat_down.svg' alt='' /></button>
-      <ul class='list-menu' id='subMenuList'>
-        <li><a href="/views/menu4/floorplanA.html">평면안내</a></li>
-        <li><a href="/views/menu4/interior.html">인테리어</a></li>
-      </ul>
-    </div>
-  </div>
+    {% block mobile_sub_menu %}
+        {% embed 'mobile_sub_menu.twig' %}
+            {% block sub_menu %}
+                <div class='sub-menu-container'>
+                    <button class='sub-menu-btn' id='subMenuBtn'>인테리어 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+                    {% include "menu4/mo_sub_menu.twig" %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
 
 	<div class="page-nav-mobile-container">
 		<div class="page-nav-mobile">
@@ -60,13 +24,7 @@
 	</div>
 	
   <div class="page-content-container">
-		<div class="tab-container tab-container-grid">
-			<div class="tab "><a href="/views/menu4/interior.html">Living Room</a></div>
-			<div class="tab "><a href="/views/menu4/interior-bed.html">Bed Room</a></div>
-			<div class="tab active"><a href="/views/menu4/interior-dining.html">Dining Room</a></div>
-			<div class="tab "><a href="/views/menu4/interior-bath.html">Bath Room</a></div>
-			<div class="tab "><a href="/views/menu4/interior-etc.html">Etc.</a></div>
-		</div>
+      {% include "menu4/tab_page_interior.twig" %}
 		<div class="page-title-container" data-aos="fade-up">
 			<h1><span class="green">Dining Room</span></h1>
 			<p>
@@ -74,38 +32,39 @@
 			</p>
 		</div>
 
-		<div class="interior-img-container">
-			<div class="img-row">
-				<div class="img-cont" data-aos="fade-up">
-					<img src="/images/dining-img-1.png" alt="">
-					<div class="img-label">주방</div>
-				</div>
-			</div>
-			<!-- <div class="img-row">
-				<div class="img-cont" data-aos="fade-up">
-					<img src="/images/dining-img-2.png" alt="">
-					<div class="img-label">주방 2</div>
-				</div>
-			</div> -->
-			<div class="img-row" data-aos="fade-up">
-				<div class="img-cont">
-					<img src="/images/dining-img-3.png" alt="">
-				</div>
-				<div class="img-cont">
-					<img src="/images/dining-img-4.png" alt="">
-				</div>
-				<div class="img-cont">
-					<img src="/images/dining-img-5.png" alt="">
-				</div>
-				<!-- <div class="interior-grid-col3" data-aos="fade-up">
-					<img src="/images/dining-img-3.png" alt="">
-					<img src="/images/dining-img-4.png" alt="">
-					<img src="/images/dining-img-5.png" alt="">
-				</div> -->
-			</div>
-		</div>
+      <div class="interior-img-container">
+          <div class="img-row">
+              <div class="img-cont" data-aos="fade-up">
+                  <img src="{{ asset('dist/images/dining-img-1.png') }}" alt="">
+                  <div class="img-label">주방</div>
+              </div>
+          </div>
+          <!-- <div class="img-row">
+        <div class="img-cont" data-aos="fade-up">
+            <img src="{{ asset('dist/images/dining-img-2.png') }}" alt="">
+            <div class="img-label">주방 2</div>
+        </div>
+    </div> -->
+          <div class="img-row" data-aos="fade-up">
+              <div class="img-cont">
+                  <img src="{{ asset('dist/images/dining-img-3.png') }}" alt="">
+              </div>
+              <div class="img-cont">
+                  <img src="{{ asset('dist/images/dining-img-4.png') }}" alt="">
+              </div>
+              <div class="img-cont">
+                  <img src="{{ asset('dist/images/dining-img-5.png') }}" alt="">
+              </div>
+              <!-- <div class="interior-grid-col3" data-aos="fade-up">
+            <img src="{{ asset('dist/images/dining-img-3.png') }}" alt="">
+            <img src="{{ asset('dist/images/dining-img-4.png') }}" alt="">
+            <img src="{{ asset('dist/images/dining-img-5.png') }}" alt="">
+        </div> -->
+          </div>
+      </div>
 
-		<div class='division-line-subpage' data-aos='fade-up'></div>
+
+      <div class='division-line-subpage' data-aos='fade-up'></div>
 
     <ul class='notice-info' data-aos='fade-up'>
       <li>본 홍보물에 사용된 사진, 이미지, 일러스트 등은 소비자의 이해를 돕기 위한 것으로 실제와 다소 차이가 있을 수 있으니 반드시 주택홍보관을 방문하시어 확인하시기 바랍니다.</li>
@@ -115,31 +74,8 @@
     </ul>
 	</div>
   <!-- page content -->
-  
-	<!-- footer -->
-	<footer>
-		<div class="footer-info">
-			<p class="footer-name">시행 (가칭)운정역지역주택조합 추진위원회</p>
-			<ul class="footer-list">
-				<li>온라인대행 : ㈜ 티디아이</li>
-				<li>서울특별시 서초구 반포대로20길 29(서초동, TDI타워)</li>
-				<li>사업자등록번호 : 615-85-36966</li>
-			</ul>
-			<div class="footer-cp">
-				<p>Copyright ⓒ 운정역더써밋. All Rights Reserved.</p>
-				<ul class="footer-cp-list">
-					<li>본 제작물에 사용된 CG, 이미지 등은 소비자의 이해를 돕기 위한 것으로 변경될 수 있으며, 실제와 다를 수 있습니다. </li>
-					<li>본 제작물에 표기된 계획은 관계기관 및 사업주체 사정에 따라 일부 변경, 지연, 취소될 수 있습니다.</li>
-				</ul>
-			</div>
-		</div>
-		<div class="footer-logo">
-			<img src="/images/footer_logo.svg" alt="">
-		</div>
-	</footer>
-	<!-- footer -->
 
-	<script src="/js/app.js"></script>
-</body>
 
-</html>
+      {% include "footer.twig" %}
+
+  {% endblock %}
