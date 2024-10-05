@@ -1,4 +1,8 @@
 {% extends "layout.twig" %}
+{% block javascripts %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('login')}}
+{% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
 
@@ -31,17 +35,17 @@
         <div class="login-input-container large">
           <div class="input-container icon">
             <img src="{{ asset('dist/images/ic_person.svg') }}" alt="" class="input-icon" />
-            <input type="text" placeholder="아이디" class="id" />
+            <input name="userId" type="text" placeholder="아이디" class="id" />
           </div>
           <div class="input-container icon">
             <img src="{{ asset('dist/images/ic_lock.svg') }}" alt="" class="input-icon" />
-            <input type="password" placeholder="비밀번호" class="pass" />
+            <input name="password" type="password" placeholder="비밀번호" class="pass" />
           </div>
         </div>
 
 
         <div class='login-button-container'>
-          <div class='btn-primary full'>로그인</div>
+          <div class='btn-primary full btn'>로그인</div>
         </div>
 
         <div class='login-sub-menu'>

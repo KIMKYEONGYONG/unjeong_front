@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controllers\Action\ActionAuthController;
 use App\Controllers\Action\ActionClientController;
 use App\Controllers\MainController;
 use App\Controllers\Menu1Controller;
@@ -19,10 +20,12 @@ use Slim\Routing\RouteCollectorProxy;
 
 return static function(App $app) {
 
-    $app->get('/auth/login',[MainController::class,'loginView'])->add(GuestMiddleware::class);
     $app->get('/auth/logout', [MainController::class, 'logOut'])->add(AuthMiddleware::class);
     $app->get('/', [MainController::class, 'index']);
     $app->get('/wip', [MainController::class, 'wip']);
+
+    $app->post('/action/login',[ActionAuthController::class,'login']);
+
 
     $app->group('',function (RouteCollectorProxy $front){
 
@@ -72,7 +75,7 @@ return static function(App $app) {
         });
 
         $front->group('/menu7',function (RouteCollectorProxy $menu7){
-            $menu7->get('/login',[Menu7Controller::class,'login']);
+            $menu7->get('/login',[Menu7Controller::class,'login'])->add(GuestMiddleware::class);
         });
 
         $front->group('/menu8',function (RouteCollectorProxy $menu8){

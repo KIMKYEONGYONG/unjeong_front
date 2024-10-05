@@ -13,6 +13,7 @@ Encore
     .addEntry("fullpage","./resources/js/jquery.fullpage.js")
     .addEntry("common","./resources/js/common.js")
     .addEntry("signup_terms","./resources/js/menu8/signup_terms.js")
+    .addEntry("login","./resources/js/menu7/login.js")
 
 
     .splitEntryChunks()

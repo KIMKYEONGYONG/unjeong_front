@@ -26,7 +26,7 @@ class GuestMiddleware implements MiddlewareInterface
             if ($this->requestService->isXhr($request)) {
                 return $this->responseFactory->createResponse(422);
             }
-            return $this->responseFactory->createResponse(302)->withHeader('Location', '/');
+            return $this->responseFactory->createResponse(302)->withHeader('Location', '/menu8/member_notice/list');
         }
 
         return $handler->handle($request);

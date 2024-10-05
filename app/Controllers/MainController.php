@@ -19,16 +19,12 @@ class MainController extends Controller
     ) {
     }
 
-    public function loginView(Request $request, Response $response): Response
-    {
-        return $this->render($this->twig,$response,'auth/login.twig');
-    }
 
     public function logOut(Request $request, Response $response): Response
     {
         $this->auth->logOut();
 
-        return $response->withHeader('Location', '/auth/login')->withStatus(302);
+        return $response->withHeader('Location', '/menu7/login')->withStatus(302);
     }
 
     public function index(Request $request ,Response $response): Response
