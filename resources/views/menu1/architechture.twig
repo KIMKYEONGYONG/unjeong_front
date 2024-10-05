@@ -8,13 +8,7 @@
         </div>
     </div>
 
-    <div class="page-nav-container">
-        <ul class="page-nav">
-            <li><a href="/menu1/business">사업개요</a></li>
-            <li class="active"><a href="/menu1/architechture">조감도/투시도</a></li>
-            <li><a href="/menu1/location">오시는길</a></li>
-        </ul>
-    </div>
+    {% include "menu1/pc_page_nav.twig" %}
 
     <div class='mobile-sub-menu'>
         <a href='/' class='home-link'><img src='{{ asset('dist/images/ic_home.svg') }}' alt='홈 링크 이미지' /></a>
