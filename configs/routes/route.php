@@ -18,7 +18,7 @@ return static function(App $app) {
     $app->get('/auth/login',[MainController::class,'loginView'])->add(GuestMiddleware::class);
     $app->get('/auth/logout', [MainController::class, 'logOut'])->add(AuthMiddleware::class);
     $app->get('/', [MainController::class, 'index']);
-
+    $app->get('/wip', [MainController::class, 'wip']);
 
     $app->group('',function (RouteCollectorProxy $front){
 

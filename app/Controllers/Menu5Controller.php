@@ -25,7 +25,8 @@ class Menu5Controller extends Controller
 
     public function videos(Request $request, Response $response): Response
     {
-        return $this->render($this->twig,$response,'menu5/videos.twig');
+        return $response->withHeader('Location', '/wip')->withStatus(302);
+        //return $this->render($this->twig,$response,'menu5/videos.twig');
     }
 
 

@@ -35,4 +35,9 @@ class MainController extends Controller
     {
         return $this->render($this->twig,$response,'index.twig');
     }
+
+    public function wip(Request $request ,Response $response): Response
+    {
+        return $this->render($this->twig,$response,'404.twig');
+    }
 }
