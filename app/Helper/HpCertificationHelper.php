@@ -92,7 +92,7 @@ class HpCertificationHelper
 
         $v = new Validator($data);
         if ($mode === CertAuthMode::CERT_AUTHNO_FIND_PWD) {
-            $v->rule('required','userId')->message('아이디를 입력하세요');
+           // $v->rule('required','userId')->message('아이디를 입력하세요');
         }
         $v->rule('required','phone')->message('휴대폰 번호를 정확히 입력하세요');
         $v->rule('cellphone','phone')->message('휴대폰 번호를 확인 하시기 바랍니다');
@@ -104,7 +104,7 @@ class HpCertificationHelper
         if ($mode === CertAuthMode::CERT_AUTHNO_FIND_PWD ) {
             $isExistence = $userRepo->findOneBy([
                 'phone' => str_replace('-','',$data['phone']),
-                'userId' => $data['userId']
+              //  'userId' => $data['userId']
             ]);
         } else if(in_array($mode, [CertAuthMode::CERT_AUTHNO_REGISTER, CertAuthMode::CERT_AUTHNO_CHANGE_HP], true)) {
             $isExistence = $userRepo->isExistencePhone($data['phone']);
