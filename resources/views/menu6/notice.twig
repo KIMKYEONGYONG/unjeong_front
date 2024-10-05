@@ -24,11 +24,11 @@
   </div>
 
   <div class='page-content-container'>
-		<div class="notice-page-title">
-			<img src="{{ asset('dist/images/ic_notice.svg') }}" alt="">
-			운정역더써밋의 소식을 전달 드립니다.
-		</div>
-		
+    <div class="notice-page-title">
+      <img src="{{ asset('dist/images/ic_notice.svg') }}" alt="">
+      운정역더써밋의 소식을 전달 드립니다.
+    </div>
+
     <div class="flex-table">
       <div class="row heading">
         <div class="cell number">번호</div>
@@ -44,7 +44,9 @@
         {% endfor %}
       </div>
     </div>
-	</div>
+
+    {% include "paginator.twig" %}
+  </div>
   <!-- page content -->
 
 

@@ -1,0 +1,20 @@
+{% set _currentPage = request.queryparams['page'] ? : 1%}
+{% set _currentPath = request.uri.path %}
+{% set _currentParams = request.queryparams %}
+{% set _blockStart = lists.blockStart %}
+{% set _blockEnd = lists.blockEnd %}
+{% set _lastPage = lists.lastPage %}
+
+<div class="pagination-container">
+    <ul class="pagination">
+        <li class="page-more"><a href="{{page_link(_currentPath, _currentParams|merge({page: _currentPage - 1}))}}"><img src="{{ asset('dist/images/ic_left.svg') }}" alt=""></a></li>
+        {% if _lastPage > 0 %}
+            {% for i in _blockStart.._blockEnd %}
+                <li class="{{ i == _currentPage ?  'on'  : '' }}"><a href="{{page_link(_currentPath, _currentParams|merge({page: i}))}}">{{ i }}</a></li>
+            {% endfor %}
+        {%else%}
+            <li class="on">1</li>
+        {% endif %}
+        <li class="page-more"><a href="{{page_link(_currentPath, _currentParams|merge({page: _currentPage + 1}))}}"><img src="{{ asset('dist/images/ic_right.svg') }}" alt=""></a></li>
+    </ul>
+</div>

@@ -11,6 +11,7 @@ Encore
 
     .addEntry("app","./resources/js/app.js")
     .addEntry("fullpage","./resources/js/jquery.fullpage.js")
+    .addEntry("common","./resources/js/common.js")
 
 
     .splitEntryChunks()

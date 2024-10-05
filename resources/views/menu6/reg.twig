@@ -1,4 +1,8 @@
 {% extends "layout.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+{% endblock %}
 {% block content %}
     {% include "menu6/top_menu.twig" %}
 
@@ -19,7 +23,7 @@
         {% endembed %}
     {% endblock %}
 
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 
     <div class='page-nav-mobile-container'>
         <div class='page-nav-mobile'>관심고객등록</div>
