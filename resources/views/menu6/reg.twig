@@ -40,7 +40,7 @@
                             <div class="input-container-table" style="max-width: 400px;">
                                 <div class='label'>성명</div>
                                 <div class="input-container">
-                                    <input type='text' placeholder='성명' />
+                                    <input name="name" type='text' placeholder='성명' />
                                 </div>
                             </div>
                         </div>
@@ -92,9 +92,9 @@
                                         </select>
                                     </div>
                                     -
-                                    <input type='tel' placeholder='' />
+                                    <input name="phone2" type='tel' placeholder='' />
                                     -
-                                    <input type='tel' placeholder='' />
+                                    <input name="phone3" type='tel' placeholder='' />
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                     <input type="text" readonly class="post-code-input">
                                     <div class="btn-secondary" onclick="sample6_execDaumPostcode()">우편번호 검색</div>
                                 </div>
-                                <input type="text" placeholder="상세 주소" style="margin-top: 8px;" />
+                                <input id="addr" name="addr" type="text" placeholder="상세 주소" style="margin-top: 8px;" />
                             </div>
                             <div class="warning">※ 고객님의 상세주소를 추가로 받지 않습니다.</div>
                         </div>
@@ -129,7 +129,7 @@
                     - 보유기간: 분양종료 시 까지
                 </div>
                 <div class="radio-container justify-center">
-                    <input type="radio" id="agree1" name="term1" value="" />
+                    <input type="radio" id="agree1" name="term1" value="1" />
                     <label for="agree1">동의합니다</label>
 
                     <input type="radio" id="reject1" name="term1" value="" />
@@ -142,7 +142,7 @@
                     수탁자 : 주식회사 티디아이, 수탁업무 - 홈페이지 관리
                 </div>
                 <div class="radio-container justify-center">
-                    <input type="radio" id="agree2" name="term2" value="" />
+                    <input type="radio" id="agree2" name="term2" value="1" />
                     <label for="agree2">동의합니다</label>
 
                     <input type="radio" id="reject2" name="term2" value="" />
@@ -150,7 +150,7 @@
                 </div>
             </section>
             <div class="page-footer reg">
-                <div class="btn-primary large">관심고객 등록하기</div>
+                <div class="btn-primary large ajaxRequest" data-ajax-url="/action/apply/client/register" data-layer-id="regFrm" data-action="reload">관심고객 등록하기</div>
             </div>
         </form>
     </div>
@@ -168,7 +168,6 @@
                         addr = data.jibunAddress;
                     }
 
-                    document.getElementById('zipcode').value = data.zonecode;
                     document.getElementById("addr").value = addr;
                 }
             }).open();

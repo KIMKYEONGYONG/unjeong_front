@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\RequestValidators;
 
+use App\Core\JsonFormatter;
 use App\Enum\ActionMode;
 use App\Exception\ValidationException;
 use App\Interfaces\RequestValidatorInterface;
@@ -15,12 +16,21 @@ class ClientRequestValidator implements RequestValidatorInterface
     {
         $v = new Validator($data);
 
+        error_log("test data = ".JsonFormatter::encode($data));
+
+        $v->rule('required','phone1')->message('휴대폰 번호 앞자리를 선택해주세요.');
+        $v->rule('required','age')->message('연령대를 선택해주세요.');
+        $v->rule('required','gender')->message('성별을 선택해주세요.');
+        $v->rule('required','term1')->message('개인정보수집 및 이용동의에 동의해주세요.');
+        $v->rule('required','term2')->message('개인정보 위탁에 대해서 동의해주세요');
 
         $rules =  [
             'name' => ['required',['lengthMax', 10]],
-            'phone' => ['required',['lengthMax', 13],'cellphone'],
-            'age' => ['required',['lengthMax', 5],'numeric'],
-            'gender' => ['required',['lengthMax', 1]],
+            'phone1' => ['required',['lengthMax', 3]],
+            'phone2' => ['required',['lengthMax', 4]],
+            'phone3' => ['required',['lengthMax', 4]],
+            'age' => [['lengthMax', 5],'numeric'],
+            'gender' => [['lengthMax', 5]],
             'addr' => ['required',['lengthMax', 255]],
         ];
 
@@ -30,9 +40,11 @@ class ClientRequestValidator implements RequestValidatorInterface
         $v->labels(
             [
                 'name' => '성명',
-                'phone' => '휴대폰번호',
                 'age' => '연령대',
                 'gender' => '성별',
+                'phone1' => '휴대폰번호',
+                'phone2' => '휴대폰번호',
+                'phone3' => '휴대폰번호',
                 'addr' => '주소',
             ]
         );
@@ -41,6 +53,7 @@ class ClientRequestValidator implements RequestValidatorInterface
             throw new ValidationException($v->errors());
         }
 
-        return $data;
+        $phone = $data['phone1']. '-' . $data['phone2'] . '-'.  $data['phone3'];
+        return $data + ['phone' => $phone];
     }
 }

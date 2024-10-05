@@ -10,6 +10,9 @@ $(function() {
         let data = $(this).attr('data-object');
         let dataType = 'json';
         let layerId = $(this).attr('data-layer-id');
+        if(layerId === undefined){
+            layerId = "regFrm"
+        }
         if(!isDefined(data)){
             data = document.querySelector('form#'+layerId);
             dataType = 'form';

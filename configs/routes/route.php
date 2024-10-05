@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controllers\Action\ActionClientController;
 use App\Controllers\MainController;
 use App\Controllers\Menu1Controller;
 use App\Controllers\Menu2Controller;
@@ -72,7 +73,7 @@ return static function(App $app) {
 
 
     $app->group('/action',function (RouteCollectorProxy $action){
-
+        $action->post('/apply/client/register',[ActionClientController::class,'register']);
 
     });
 

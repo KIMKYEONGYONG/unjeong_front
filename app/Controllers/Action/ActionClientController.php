@@ -6,6 +6,7 @@ namespace App\Controllers\Action;
 
 use App\Core\ResponseFormatter;
 use App\DataObjects\ResponseData;
+use App\Exception\ValidationException;
 use App\Interfaces\RequestValidatorFactoryInterface;
 use App\RequestValidators\ClientRequestValidator;
 use App\Services\ClientService;
@@ -32,6 +33,7 @@ class ActionClientController
         $data = $this->requestValidatorFactory->make(ClientRequestValidator::class)->validate(
             $body
         );
+
         $this->service->register($data);
         return $response;
     }
