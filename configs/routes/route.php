@@ -8,6 +8,7 @@ use App\Controllers\Menu2Controller;
 use App\Controllers\Menu3Controller;
 use App\Controllers\Menu4Controller;
 use App\Controllers\Menu5Controller;
+use App\Controllers\Menu6Controller;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
 use Slim\App;
@@ -59,6 +60,12 @@ return static function(App $app) {
             $menu5->get('/news',[Menu5Controller::class,'news']);
             $menu5->get('/videos',[Menu5Controller::class,'videos']);
             $menu5->get('/vr',[Menu5Controller::class,'vr']);
+        });
+
+        $front->group('/menu6',function (RouteCollectorProxy $menu5){
+            $menu5->get('/notice/list',[Menu6Controller::class,'notice']);
+            $menu5->get('/notice/detail/{id:[0-9]+}',[Menu6Controller::class,'noticeDetail']);
+            $menu5->get('/reg',[Menu6Controller::class,'reg']);
         });
 
     });
