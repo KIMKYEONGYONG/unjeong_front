@@ -11,6 +11,7 @@ use App\Core\EntityMapper;
 use App\Entity\Member;
 use App\Interfaces\AuthInterface;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Exception\NotSupported;
 use ReflectionException;
 
 class AccountService
@@ -41,5 +42,13 @@ class AccountService
     public function passwordReset(Member $user, string $password): void
     {
         $this->userRepository->passwordUpdate($user,password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]));
+    }
+
+    /**
+     * @throws NotSupported
+     */
+    public function findByPhone(String $phone): ?Member
+    {
+       return  $this->entityManager->getRepository(Member::class)->findOneBy(['phone' => $phone]);
     }
 }

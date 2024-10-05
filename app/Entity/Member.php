@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Entity\Traits\OnlyCreatedAtTimestamps;
 use App\Interfaces\AuthUserInterface;
 use App\Interfaces\EntityInterface;
 use App\Repository\UserRepository;
@@ -19,6 +20,8 @@ use Doctrine\ORM\Mapping\Table;
 #[Table('member')]
 class Member implements AuthUserInterface, EntityInterface
 {
+    use OnlyCreatedAtTimestamps;
+
     #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
     private int $id;
 

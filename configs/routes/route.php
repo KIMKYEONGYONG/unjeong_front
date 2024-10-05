@@ -79,7 +79,6 @@ return static function(App $app) {
         $front->group('/menu7',function (RouteCollectorProxy $menu7){
             $menu7->get('/login',[Menu7Controller::class,'login'])->add(GuestMiddleware::class);
             $menu7->get('/idFind',[Menu7Controller::class,'idFind'])->add(GuestMiddleware::class);
-            $menu7->get('/idFind2',[Menu7Controller::class,'idFind2'])->add(GuestMiddleware::class);
         });
 
         $front->group('/menu8',function (RouteCollectorProxy $menu8){
@@ -104,6 +103,7 @@ return static function(App $app) {
 
         $action->group('/account',function (RouteCollectorProxy $account){
             $account->post('/create',[ActionAccountController::class,'register']);
+            $account->post('/findId',[ActionAccountController::class,'findId']);
         });
 
     });

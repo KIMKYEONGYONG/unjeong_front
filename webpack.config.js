@@ -15,6 +15,8 @@ Encore
     .addEntry("signup","./resources/js/menu8/signup.js")
     .addEntry("signup_terms","./resources/js/menu8/signup_terms.js")
     .addEntry("login","./resources/js/menu7/login.js")
+    .addEntry("findId","./resources/js/menu7/findId.js")
+    .addEntry("findPass","./resources/js/menu7/findPass.js")
 
 
     .splitEntryChunks()

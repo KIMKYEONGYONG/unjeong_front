@@ -1,7 +1,7 @@
 {% extends "layout.twig" %}
 {% block javascripts %}
   {{ parent() }}
-  {{ encore_entry_script_tags('login')}}
+  {{ encore_entry_script_tags('findId')}}
 {% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
@@ -20,7 +20,7 @@
     {% endembed %}
   {% endblock %}
 
-<div class='page-nav-mobile-container'>
+  <div class='page-nav-mobile-container'>
     <div class='page-nav-mobile'>로그인</div>
   </div>
 
@@ -37,38 +37,23 @@
             <div class='title'>아이디 찾기</div>
             <div class='steps mobile'>1. 아이디입력 > <span class="green">2. 본인 확인</span> > 3. 비밀번호 재설정</div>
           </div>
-          <div class='body'>
+          <div class='body' id="findId1">
             <div class='user-info'>회원정보에 등록한 휴대전화로 인증 <br> <span class="phone-num">(+** 1*-6***-1***)</span> <div class='warning'>* 회원정보에 등록한 휴대전화 번호와 입력한 휴대전화 번호가 같아야, 인증번호를 받을 수 있습니다.</div></div>
-      
+
             <div class='inner-body'>
-              <div class="input-container-label">
-                <div class='label'>이름</div>
-                <div class="input-container">
-                  <input type='text' placeholder='이름' />
-                </div>
-              </div>
-              <div class="input-container-label">
-                <div class='label'>휴대전화</div>
-                <div class="input-container">
-                  <div class='custom-select'>
-                    <select name='phone' id=''>
-                      <option value='010'>010</option>
-                      <option value='019'>019</option>
-                      <option value='017'>017</option>
-                    </select>
-                  </div>
-                  -
-                  <input type='tel' placeholder='' />
-                  <button class='btn-secondary'>인증번호 받기</button>
-                </div>
+              <div class="input-container icon">
+                <img src="{{ asset('dist/images/ic_mobile_phone.svg') }}" alt="" class="input-icon" />
+                <input name="phone" type="tel" placeholder="휴대전화 번호(숫자만)" />
+                <div class='btn-secondary' id="phoneCheck">인증번호 발송</div>
               </div>
               <div class="input-container" style="margin-top: -8px;">
-                <input type="tel" placeholder="인증번호 6자리 입력">
+                <input name="authenticationNum" type="tel" placeholder="인증번호 6자리 입력">
+                <div class='btn-secondary' id="phoneCheckNum">인증하기</div>
               </div>
               <div class='help' style="margin-top: -12px;">
                 인증정보가 오지 않나요?
                 <div class='tooltip-container'>
-                  <img src='/images/ep_question-filled.svg' alt='' />
+                  <img src='{{ asset('dist/images/ep_question-filled.svg') }}' alt='' />
                   <div class='tooltip'>
                     1533 번호가 스팸 문자로 등록되어 있는 것은 아닌지 확인해 주세요. 스팸 문자로 등록되어 있지 않다면, 다시 한 번 ‘인증번호 받기'를
                     눌러주세요.
@@ -77,13 +62,37 @@
               </div>
 
               <div class='login-button-container '>
-                <a href="/menu7/idFind" type='submit' class='btn-primary full'>다음</a>
+                <div class='btn-primary full' id="registerBtn">다음</a>
+                </div>
               </div>
             </div>
           </div>
+          <div class='body' id="findId2" style="display: none;" >
+            <div class='inner-body'>
+              <div class="found-id-container">
+                <div class="title">고객님의 정보와 일치하는 아이디 목록입니다.</div>
+                <div class="found-id-inner">
+                  <div class="found-id-row">
+                    <div class="radio-container">
+                      <input type="radio" id="id1" name="foundId" value="" />
+                      <label id="userId" for="id1"></label>
+                    </div>
+                    <div class="reg-info" id="createdAt">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='login-button-container2 '>
+                <a href="/menu7/passFind" class='btn-primary line'>비밀번호 찾기</a>
+                <a href="/menu7/login" class='btn-primary'>로그인하기</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </form>
+  </form>
   </div>
   <!-- page content -->
 
