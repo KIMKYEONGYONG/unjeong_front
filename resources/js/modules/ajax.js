@@ -72,7 +72,8 @@ const ajax = (
         Swal.fire({
             icon: 'warning',
             text: error.message,
-            confirmButtonText: '확인'
+            confirmButtonText: '확인',
+            confirmButtonColor : '#0C6170'
         }).then()
     }).finally(()=>loading(false));
 }
@@ -85,7 +86,8 @@ function handleErrors(message,status) {
     Swal.fire({
         icon: 'warning',
         html: message,
-        confirmButtonText: '확인'
+        confirmButtonText: '확인',
+        confirmButtonColor : '#0C6170'
     }).then(result => {
         if (result.isConfirmed) {
             if (status === 401) {
