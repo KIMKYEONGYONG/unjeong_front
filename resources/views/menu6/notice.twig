@@ -35,14 +35,16 @@
         <div class="cell">제목</div>
         <div class="cell date">등록일</div>
       </div>
-      <div class="row">
-        <!--- 목록없음 --->
-        {% for list in lists.items %}
+
+      {% for list in lists.items %}
+        <div class="row">
+          <!--- 목록없음 --->
           <div class="cell number">{{ list_no(lists.total,lists.page,lists.limit,loop.index0) }}</div>
           <div class="cell title"><a href="/menu6/notice/detail/{{ list.id }}">{{ list.subject }}</a></div>
           <div class="cell date">{{ list.createdAt | date('Y-m-d H:i:s') }}</div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
+
     </div>
 
     {% include "paginator.twig" %}
