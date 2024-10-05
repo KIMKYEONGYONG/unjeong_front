@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- fullpage -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/vendors/scrolloverflow.min.js"></script>
+  <script src="/js/jquery.fullpage.js"></script>
+  <link rel="stylesheet" href="/js/jquery.fullpage.min.css" />
+
+  <!-- swiperjs -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+  <!-- aos -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <title>운정역더써밋</title>
+</head>
+
+<body>
+  
+  <!-- header -->
+  <header class="">
+    <div class='inner'>
+      <div class='logo-container'>
+        <div class='logo-white'><a href='/views/index.html'><img src='/images/logo-white.svg' alt='로고/화이트' /></a></div>
+        <div class='logo-color'><a href='/views/index.html'><img src='/images/logo.svg' alt='로고' /></a></div>
+      </div>
+      <ul class='gnb-menu'>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu1/business.html' aria-label='운정역더써밋'>운정역더써밋</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'>
+              <a href='/views/menu1/business.html' aria-label='사업개요'>사업개요</a>
+            </li>
+            <li class='sub-menu-item'>
+              <a href='/views/menu1/architechture.html' aria-label='조감도/투시도'>조감도/투시도</a>
+            </li>
+            <li class='sub-menu-item'>
+              <a href='/views/menu1/location.html' aria-label='오시는길'>오시는길</a>
+            </li>
+          </ul>
+        </li>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu2/intro.html' aria-label='프리미엄'>프리미엄</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'><a href='/views/menu2/intro.html' aria-label='입지소개'>입지소개</a></li>
+            <li class='sub-menu-item'><a href='/views/menu2/premium10.html' aria-label='프리미엄10'>프리미엄10</a></li>
+          </ul>
+        </li>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu3/complex.html' aria-label='단지안내'>단지안내</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'><a href='/views/menu3/complex.html' aria-label='단지배치도'>단지배치도</a></li>
+            <li class='sub-menu-item'><a href='/views/menu3/units.html' aria-label='동호수배치도'>동호수배치표</a></li>
+            <li class='sub-menu-item'><a href='/views/menu3/community.html' aria-label='커뮤니티'>커뮤니티</a></li>
+            <li class='sub-menu-item'><a href='/views/menu3/garden.html' aria-label='조경+부분컷'>조경+부분컷</a></li>
+            <li class='sub-menu-item'><a href='/views/menu3/system.html' aria-label='시스템'>시스템</a></li>
+          </ul>
+        </li>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu4/floorplanA.html' aria-label='세대안내'>세대안내</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'><a href='/views/menu4/floorplanA.html' aria-label='평면안내'>평면안내</a></li>
+            <li class='sub-menu-item'><a href='/views/menu4/interior.html' aria-label='인테리어'>인테리어</a></li>
+          </ul>
+        </li>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu5/news.html' aria-label='홍보센터'>홍보센터</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'><a href='/views/menu5/news.html' aria-label='언론보도'>언론보도</a></li>
+            <li class='sub-menu-item'><a href='/views/menu5/videos.html' aria-label='홍보동영상'>홍보동영상</a></li>
+            <li class='sub-menu-item'><a href='/views/menu5/vr.html' aria-label='사이버 모델하우스'>사이버 <br /> 모델하우스(VR)</a></li>
+          </ul>
+        </li>
+        <li class='gnb-menu-item'>
+          <a href='/views/menu6/notice.html' aria-label='고객센터'>고객센터</a>
+          <ul class='sub-menu'>
+            <li class='sub-menu-item'><a href='/views/menu6/notice.html' aria-label='공지사항'>공지사항</a></li>
+            <li class='sub-menu-item'><a href='/views/menu6/reg.html' aria-label='관심고객등록'>관심고객등록</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class='utils'>
+        <a href='/views/menu7/login.html' class='member-link' aria-label='조합원전용'><img src='/images/bi_person-fill.svg' alt='사람아이콘' />
+          조합원전용</a>
+        <a href='tel:1533-7720' class='tel-link'>
+          <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'
+            class='ic-phone'>
+            <path
+              d='M19.23 15.26L16.69 14.97C16.3914 14.9349 16.0886 14.968 15.8046 15.0667C15.5206 15.1654 15.2626 15.3273 15.05 15.54L13.21 17.38C10.3714 15.9359 8.0641 13.6286 6.62004 10.79L8.47004 8.94001C8.90004 8.51001 9.11004 7.91001 9.04004 7.30001L8.75004 4.78001C8.69356 4.2921 8.45951 3.84204 8.0925 3.51561C7.7255 3.18918 7.25121 3.00921 6.76004 3.01001H5.03004C3.90004 3.01001 2.96004 3.95001 3.03004 5.08001C3.56004 13.62 10.39 20.44 18.92 20.97C20.05 21.04 20.99 20.1 20.99 18.97V17.24C21 16.23 20.24 15.38 19.23 15.26Z'>
+            </path>
+          </svg>
+          1533-7720
+        </a>
+      </div>
+      <button class='hamburger-btn' id='hamburgerBtn'><img src='/images/hamburger-menu-icon.svg'
+          alt='모바일 메뉴' /></button>
+    </div>
+  </header>
+  <!-- header -->
+
+  <!-- mobilemenu -->
+  <div class='mobile-menu-container'>
+    <div class='mobile-menu-bg'></div>
+    <div class='mobile-menu'>
+      <div class='mobile-menu-header'>
+        <button id='mobile-menu-close-btn'><img src='/images/ic_close.svg' alt='모바일 닫기' /></button>
+      </div>
+      <div class='menu-list-container'>
+        <ul class='menu-list'>
+          <li class='menu'>
+            <div class='menu-inner'>
+              운정역더써밋 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu1/business.html'>사업개요</a></li>
+                <li class='submenu-item'><a href='/views/menu1/architechture.html'>조감도/투시도</a></li>
+                <li class='submenu-item'><a href='/views/menu1/location.html'>오시는길</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class='menu'>
+            <div class='menu-inner'>
+              프리미엄 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu2/intro.html'>입지소개</a></li>
+                <li class='submenu-item'><a href='/views/menu2/premium10.html'>프리미엄10</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class='menu'>
+            <div class='menu-inner'>
+              단지안내 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu3/complex.html'>단지배치도</a></li>
+                <li class='submenu-item'><a href='/views/menu3/units.html'>동호수배치표</a></li>
+                <li class='submenu-item'><a href='/views/menu3/community.html'>커뮤니티</a></li>
+                <li class='submenu-item'><a href='/views/menu3/garden.html'>조경+부분컷</a></li>
+                <li class='submenu-item'><a href='/views/menu3/system.html'>시스템</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class='menu'>
+            <div class='menu-inner'>
+              세대안내 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu4/floorplanA.html'>평면안내</a></li>
+                <li class='submenu-item'><a href='/views/menu4/interior.html'>인테리어</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class='menu'>
+            <div class='menu-inner'>
+              홍보센터 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu5/news.html'>언론보도</a></li>
+                <li class='submenu-item'><a href='/views/menu5/videos.html'>홍보동영상</a></li>
+                <li class='submenu-item'><a href='/views/menu5/vr.html'>사이버 모델하우스(VR)</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class='menu'>
+            <div class='menu-inner'>
+              고객센터 <button><img src='/images/ic_carat.svg' alt='모바일 서브 메뉴 열기' /></button>
+            </div>
+            <div class='submenu-container'>
+              <ul class='submenu'>
+                <li class='submenu-item'><a href='/views/menu6/notice.html'>공지사항</a></li>
+                <li class='submenu-item'><a href='/views/menu6/reg.html'>관심고객등록</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <a href='/views/menu7/login.html' class='member-link'><img src='/images/bi_person-fill.svg' alt='사람아이콘' /> 조합원전용</a>
+      </div>
+    </div>
+  </div>
+  <!-- mobilemenu -->
+
+  <!-- quickmenu -->
+  <div class="quickmenus-container">
+    <a href="/views/menu6/reg.html" class="quickmenu-accent">
+      <img src="/images/logo_symbol.svg" alt="">
+      관심고객 등록
+    </a>
+    <a href="/views/menu4/floorplanA.html" class="quickmenu"><img src="/images/ic_grid.svg" alt=""> 타입안내</a>
+    <a href="/views/menu5/videos.html" class="quickmenu"><img src="/images/ic_play.svg" alt="">홍보영상</a>
+    <a href="/views/menu1/location.html" class="quickmenu"><img src="/images/ic_pin.svg" alt="">오시는길</a>
+  </div>
+  
+  <div class="quickmenu-container-mobile">
+    <a href="/views/menu6/reg.html" class="reg">관심고객 등록</a>
+    <a href="/views/menu1/location.html" class="map">오시는길</a>
+    <a href="tel:1533-7720" class="phone">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19.23 15.26L16.69 14.97C16.3914 14.9349 16.0886 14.968 15.8046 15.0667C15.5206 15.1654 15.2626 15.3273 15.05 15.54L13.21 17.38C10.3714 15.9359 8.0641 13.6286 6.62004 10.79L8.47004 8.94001C8.90004 8.51001 9.11004 7.91001 9.04004 7.30001L8.75004 4.78001C8.69356 4.2921 8.45951 3.84204 8.0925 3.51561C7.7255 3.18918 7.25121 3.00921 6.76004 3.01001H5.03004C3.90004 3.01001 2.96004 3.95001 3.03004 5.08001C3.56004 13.62 10.39 20.44 18.92 20.97C20.05 21.04 20.99 20.1 20.99 18.97V17.24C21 16.23 20.24 15.38 19.23 15.26Z" />
+      </svg>
+    </a>
+  </div>
+  <!-- quickmenu -->
+
+
+  <!-- page content -->
+  <div class='top-visual-container'>
+    <div class='top-visual menu1'>
+      <h1>조합원 전용</h1>
+      <h2>UNJEONGYEOK THE SUMMIT</h2>
+    </div>
+  </div>
+
+  <div class='mobile-sub-menu'>
+    <a href='/views/index.html' class='home-link'><img src='/images/ic_home.svg' alt='홈 링크 이미지' /></a>
+    <div class='main-menu-container'>
+      <button class='main-menu-btn' id='mainMenuBtn'>조합원 전용 <img src='/images/ic_carat_down.svg' alt='' /></button>
+      <ul class='list-menu' id='mainMenuList'>
+        <li><a href='/views/menu1/business.html'>운정역더써밋</a></li>
+        <li><a href='/views/menu2/intro.html'>프리미엄</a></li>
+        <li><a href='/views/menu3/complex.html'>단지안내</a></li>
+        <li><a href='/views/menu4/floorplanA.html'>세대안내</a></li>
+        <li><a href='/views/menu5/news.html'>홍보센터</a></li>
+        <li><a href='/views/menu6/notice.html'>고객센터</a></li>
+        <li><a href='/views/menu7/login.html'>조합원 전용</a></li>
+      </ul>
+    </div>
+    <div class='sub-menu-container'>
+      <button class='sub-menu-btn' id='subMenuBtn'>로그인 <img src='/images/ic_carat_down.svg' alt='' /></button>
+      <ul class='list-menu' id='subMenuList'>
+        <li><a href='/views/menu7/login.html'>로그인</a></li>
+        <li><a href='/views/menu8/signup.html'>회원가입</a></li>
+        <li><a href='/views/menu8/member-notice.html'>공지사항</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='page-nav-mobile-container'>
+    <div class='page-nav-mobile'>로그인</div>
+  </div>
+
+  <div class='page-content-container'>
+    <div class='tab-container login'>
+      <div class='tab active'><a href='/views/menu7/login.html'>로그인</a></div>
+      <div class='tab'><a href='/views/menu8/signup-terms.html'>회원가입</a></div>
+      <div class='tab'><a href='/views/menu8/member-notice.html'>공지사항</a></div>
+    </div>
+
+    <form action=''>
+      <div class='login-container large'>
+        <img src='/images/business-logo.svg' alt='써밋 로고' class='member-logo' />
+
+        <div class='form-inner-container'>
+          <div class='header'>
+            <div class='title'>아이디 찾기</div>
+            <!-- <div class='steps'>1. 아이디입력 > 2. 본인 확인 > <span class="green">3. 비밀번호 재설정</span></div> -->
+          </div>
+          <div class='body'>
+            <div class='inner-body'>
+              <div class="found-id-container">
+                <div class="title">고객님의 정보와 일치하는 아이디 목록입니다.</div>
+                <div class="found-id-inner">
+                  <div class="found-id-row">
+                    <div class="radio-container">
+                      <input type="radio" id="id1" name="foundId" value="" />
+                      <label for="id1">idname1234</label>
+                    </div>
+                    <div class="reg-info">
+                      가입일 : 2024-00-00
+                    </div>
+                  </div>
+                  <div class="found-id-row">
+                    <div class="radio-container">
+                      <input type="radio" id="id2" name="foundId" value="" />
+                      <label for="id2">idname1234</label>
+                    </div>
+                    <div class="reg-info">
+                      가입일 : 2024-00-00
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+      
+              <div class='login-button-container2 '>
+                <a href="/views/menu7/passFind.html" class='btn-primary line'>비밀번호 찾기</a>
+                <a href="/views/menu7/login.html" class='btn-primary'>로그인하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- page content -->
+  
+	<!-- footer -->
+	<footer>
+		<div class="footer-info">
+			<p class="footer-name">시행 (가칭)운정역지역주택조합 추진위원회</p>
+			<ul class="footer-list">
+				<li>온라인대행 : ㈜ 티디아이</li>
+				<li>서울특별시 서초구 반포대로20길 29(서초동, TDI타워)</li>
+				<li>사업자등록번호 : 615-85-36966</li>
+			</ul>
+			<div class="footer-cp">
+				<p>Copyright ⓒ 운정역더써밋. All Rights Reserved.</p>
+				<ul class="footer-cp-list">
+					<li>본 제작물에 사용된 CG, 이미지 등은 소비자의 이해를 돕기 위한 것으로 변경될 수 있으며, 실제와 다를 수 있습니다. </li>
+					<li>본 제작물에 표기된 계획은 관계기관 및 사업주체 사정에 따라 일부 변경, 지연, 취소될 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-logo">
+			<img src="/images/footer_logo.svg" alt="">
+		</div>
+	</footer>
+	<!-- footer -->
+
+	<script src="/js/app.js"></script>
+</body>
+
+</html>

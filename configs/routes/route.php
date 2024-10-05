@@ -23,45 +23,18 @@ return static function(App $app) {
     $app->get('/auth/logout', [MainController::class, 'logOut'])->add(AuthMiddleware::class);
     $app->get('/', [MainController::class, 'index']);
 
-    $app->post('/action/login',[ActionAuthController::class,'login']);
 
-    $app->group('',function (RouteCollectorProxy $master){
-        // 관심고객관리
-        $master->group('/apply',function (RouteCollectorProxy $apply){
-            // 관심고객목록
-            $apply->group('/client',function (RouteCollectorProxy $client){
-                $client->get('/list',[ClientController::class,'list']);
-            });
-
-            // 문자발송관리
-            $apply->group('/sms',function (RouteCollectorProxy $sms){
-                $sms->get('/list',[SmsController::class,'list']);
-            });
-        });
-
-        // 게시판 관리
-        $master->group('/board',function (RouteCollectorProxy $board){
-            $board->get('/{code}/list',[BoardController::class,'list']);
-            $board->get('/{code}/register[/{id:[0-9]+}]',[BoardController::class,'register']);
-        });
+    $app->group('',function (RouteCollectorProxy $front){
 
 
-    })->add(AuthMiddleware::class);
-
-
-    $app->group('/api',function (RouteCollectorProxy $api){
-        // 공지사항
-        $api->group('/board',function (RouteCollectorProxy $board){
-            $board->get('/{code}/list',[ActionBoardController::class,'list']);
-            $board->get('/detail/{id:[0-9]+}',[ActionBoardController::class,'detail']);
-        });
-
-        // 관심고객 등록
-        $api->options('/apply/client/register',[ActionClientController::class,'register']);
 
     });
 
-    // 파일 읽는 라우터
-    // code 파라메터
-    $app->get('/readFile',[ReadFileController::class,'readFile']);
+
+    $app->group('/api',function (RouteCollectorProxy $action){
+
+
+    });
+
+
 };

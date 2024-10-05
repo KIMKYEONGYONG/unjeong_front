@@ -1,0 +1,260 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 0 24px;
+  background-color: white;
+  z-index: 10;
+  border-bottom: 1px solid #e8edf0;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s height, 0.3s opacity;
+    border-top: 1px solid #e8edf0;
+    background-color: white;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08);
+    // z-index: 2;
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1920px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .logo-container {
+    position: relative;
+    width: 300px;
+    height: 72px;
+    .logo-white,
+    .logo-color {
+      a {
+        display: inline-block;
+      }
+    }
+    .logo-color {
+      display: block;
+    }
+    .logo-white {
+      display: none;
+    }
+  }
+  .gnb-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 960px;
+    width: 100%;
+    height: 100%;
+    .gnb-menu-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 0 160px;
+      height: 100px;
+      transition: 0.3s background-color;
+      border-bottom: 1px solid transparent;
+      white-space: nowrap;
+      a {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111;
+        transition: 0.3s color;
+        &.active {
+          color: #06857E;
+        }
+      }
+      &:hover {
+        background-color: #0a5967;
+        border-bottom: 1px solid #388390;
+        a {
+          color: white;
+        }
+        .sub-menu {
+          background-color: #0a5967;
+          transition: 0.3s background-color, 0.5s opacity, 0.3s height;
+        }
+      }
+      .sub-menu {
+        // margin-top: -1px;
+
+        display: flex;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 280px;
+        visibility: hidden;
+        opacity: 0;
+        flex-direction: column;
+        gap: 24px 0;
+        padding-top: 24px;
+        .sub-menu-item {
+          a {
+            font-size: 16px;
+            font-weight: 500;
+            &:hover, &.active {
+              color: #7aebff;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    border-bottom: 1px solid transparent;
+    // border-bottom: none;
+    &::before {
+      height: 280px;
+      background-color: white;
+      visibility: visible;
+      opacity: 1;
+    }
+    .gnb-menu-item {
+      .sub-menu {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  .utils {
+    display: flex;
+    align-items: center;
+    gap: 0 28px;
+    width: 300px;
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    .logo-container {
+      .logo-color {
+        display: none;
+      }
+      .logo-white {
+        display: block;
+      }
+      a {
+        color: white;
+      }
+    }
+    .gnb-menu {
+      .gnb-menu-item {
+        a {
+          color: white;
+        }
+        .sub-menu {
+          a {
+            color: #111;
+          }
+        }
+      }
+    }
+    .utils {
+      .member-link {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .tel-link {
+        color: white;
+        .ic-phone {
+          fill: white;
+        }
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    &.transparent {
+      background-color: white;
+      .logo-container {
+        .logo-color {
+          display: block;
+        }
+        .logo-white {
+          display: none;
+        }
+      }
+      .gnb-menu {
+        display: none;
+      }
+      .utils {
+        display: none;
+      }
+    }
+    padding: 0 16px;
+    background-color: white;
+    height: 60px;
+    .logo-container {
+      width: 124px;
+      height: 48px;
+      .logo-color {
+        display: block;
+        width: 124px;
+      }
+      .logo-white {
+        display: none;
+      }
+    }
+    .gnb-menu {
+      display: none;
+    }
+    .utils {
+      display: none;
+    }
+  }
+}
+
+.hamburger-btn {
+  display: none;
+  width: 24px;
+  height: 24px;
+  img {
+    width: 100%;
+  }
+  @media (max-width: 1200px) {
+    display: block;
+  }
+}
+
+.member-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 4px;
+  background-color: #1a9089;
+  border: 1px solid #1a9089;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50vh;
+  padding: 7px 24px;
+  white-space: nowrap;
+}
+.tel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 4px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  white-space: nowrap;
+  .ic-phone {
+    fill: #111;
+  }
+}

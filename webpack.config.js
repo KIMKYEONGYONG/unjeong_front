@@ -10,8 +10,7 @@ Encore
     .setManifestKeyPrefix('dist/')
 
     .addEntry("app","./resources/js/app.js")
-    .addEntry("auth", "./resources/js/login.js")
-    .addEntry("board", "./resources/js/board.js")
+    .addEntry("fullpage","./resources/js/jquery.fullpage.js")
 
 
     .splitEntryChunks()

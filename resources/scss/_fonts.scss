@@ -1,0 +1,92 @@
+/*
+Copyright (c) 2022 Kil Hyung-jin, with Reserved Font Name Pretendard Std.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/Pretendard-Light.woff2') format('woff2'), url('/fonts/Pretendard-Light.woff') format('woff'),
+    url('/fonts/Pretendard-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Pretendard-Regular.woff2') format('woff2'), url('/fonts/Pretendard-Regular.woff') format('woff'),
+    url('/fonts/Pretendard-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Pretendard-Medium.woff2') format('woff2'), url('/fonts/Pretendard-Medium.woff') format('woff'),
+    url('/fonts/Pretendard-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2'), url('/fonts/Pretendard-SemiBold.woff') format('woff'),
+    url('/fonts/Pretendard-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Pretendard-Bold.woff2') format('woff2'), url('/fonts/Pretendard-Bold.woff') format('woff'),
+    url('/fonts/Pretendard-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream3.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream5.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream6.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream7.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream8.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/otf/SCDream9.otf) format('opentype');
+}

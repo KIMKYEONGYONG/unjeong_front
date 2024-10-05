@@ -33,6 +33,6 @@ class MainController extends Controller
 
     public function index(Request $request ,Response $response): Response
     {
-        return $response->withHeader('Location', '/apply/client/list')->withStatus(302);
+        return $this->render($this->twig,$response,'index.twig');
     }
 }
