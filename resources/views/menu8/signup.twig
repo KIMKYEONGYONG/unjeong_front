@@ -2,6 +2,7 @@
 {% block javascripts %}
   {{ parent() }}
   {{ encore_entry_script_tags('signup') }}
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 {% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
@@ -57,37 +58,35 @@
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_mobile_phone.svg') }}" alt="" class="input-icon" />
                   <input name="phone" type="tel" placeholder="휴대전화 번호(숫자만)" />
+                  <div class='btn-secondary' id="phoneCheck">인증번호 발송</div>
                 </div>
                 <div class="input-container icon">
                   <img src="{{ asset('dist/images/ic_map_pin.svg') }}" alt="" class="input-icon" />
-                  <input name="addr" id="addr" type="text" placeholder="주소" disabled />
+                  <input  type="text" placeholder="주소" disabled />
                   <div class="btn-secondary" onclick="sample6_execDaumPostcode()">우편번호검색</div>
                 </div>
                 <div class="input-container" style="margin-top: -8px;">
-                  <input type="text" placeholder="상세주소" />
+                  <input name="addr" id="addr" type="text" placeholder="상세주소" />
                 </div>
 
                 <!-- 인증요청시 아래 주석 해제 -->
                 <div class='input-container icon'>
                   <img src="{{ asset('dist/images/ic_lock.svg') }}" alt="" class='input-icon' />
                   <input name="authenticationNum" type='tel' placeholder='인증번호 6자리 입력' />
+                  <div class='btn-secondary' id="phoneCheckNum">인증하기</div>
                 </div>
-                <div class="request-pin">재요청</div>
+                <div class="request-pin" id="resend">재요청</div>
               </div>
 
               <div class='login-button-container'>
-                <div class='btn-primary full' id="phoneCheck">인증발송</div>
-                 {#
-                   <div class='btn-primary full' id="phoneCheckNum">인증하기</dive>
-                   <div class='btn-primary full' id="registerBtn">가입하기</dive>
-                 #}
-                </div>
+                <div class='btn-primary full' id="registerBtn">가입하기</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </form>
+  </div>
+  </form>
   </div>
   <!-- page content -->
 

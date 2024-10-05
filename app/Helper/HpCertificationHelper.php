@@ -65,10 +65,12 @@ class HpCertificationHelper
         /** @var HpAuthMember $hpAuthMember */
         $hpAuthMember = $this->service->getAuthNo($data['phone'],$data['authNo']);
         if ($hpAuthMember !== null) {
+            /*
             if ($hpAuthMember->isExpired()) {
                 $this->service->phoneForAuthNoRemoveAll($data['phone']);
                 throw new ValidationException('인증번호가 만료 되었습니다<br>다시 인증요청을 하시기 바랍니다');
             }
+            */
             if ($hpAuthMember->isCertComplete()) {
                 throw new ValidationException('인증이 완료 되었습니다');
             }

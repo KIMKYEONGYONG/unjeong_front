@@ -10,6 +10,7 @@ $(function() {
     const authenticationNum = document.querySelector('input[name="authenticationNum"]');
     const phone = document.querySelector('input[name="phone"]');
     const phoneCheckNum = document.getElementById('phoneCheckNum');
+    const resend = document.getElementById('resend');
 
     if (isDefined(phoneCheck)) {
         requestAuthNo(
@@ -19,6 +20,29 @@ $(function() {
             authenticationNum,
             AuthMode.CERT_AUTHNO_REGISTER
         );
+
+        phoneCheck.addEventListener('click',async function(){
+            const $phone = $('input[name="phone"]');
+            $phone.prop('disabled', true);
+            $phone.prop('readonly', true);
+        });
+    }
+
+    if (isDefined(resend)) {
+        requestAuthNo(
+            resend,
+            phoneCheckNum,
+            phone,
+            authenticationNum,
+            AuthMode.CERT_AUTHNO_REGISTER
+        );
+
+        resend.addEventListener('click',async function(){
+            const $authenticationNum = $('input[name="authenticationNum"]');
+            $authenticationNum.prop('disabled', false);
+            $authenticationNum.prop('readonly', false);
+            $authenticationNum.val('')
+        });
     }
 
     if (isDefined(phoneCheckNum)) {
@@ -35,6 +59,12 @@ $(function() {
                 }).then();
             }
         );
+
+        phoneCheckNum.addEventListener('click',async function(){
+            const $authenticationNum = $('input[name="authenticationNum"]');
+            $authenticationNum.prop('disabled', true);
+            $authenticationNum.prop('readonly', true);
+        });
     }
 
 

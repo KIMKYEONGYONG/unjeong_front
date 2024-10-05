@@ -8,6 +8,7 @@ use App\Entity\BioAgeScore;
 use App\Entity\FcMember;
 use App\Entity\FcmToken;
 use App\Entity\MarketingAgreeHistory;
+use App\Entity\Member;
 use App\Entity\MemberDonationHistory;
 use App\Entity\MemberLevel;
 use App\Entity\MemberSecession;
@@ -40,6 +41,23 @@ class UserRepository extends EntityRepository
     public function isExistencePhone(string $phone): bool
     {
         return $this->count(['phone' => str_replace('-','',$phone)]) !== 0;
+    }
+
+    public function register(Member $user, array $data): void
+    {
+        $this->persistFlush($user);
+    }
+
+    public function passwordUpdate(Member $user,string $password): void
+    {
+        $user->setPassword($password);
+        $this->persistFlush($user);
+    }
+
+    public function persistFlush(EntityInterface $entity): void
+    {
+        $this->_em->persist($entity);
+        $this->_em->flush();
     }
 
 

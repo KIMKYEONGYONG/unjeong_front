@@ -56,7 +56,7 @@ const confirmAuthNo = (
 ) => {
     if (isDefined(confirmBtnEm)) {
         confirmBtnEm.addEventListener('click',async function(){
-            post('/api/phone/authNo/check/' + mode,{
+            post('/action/phone/authNo/check/' + mode,{
                 'phone' : phoneFiled.value,
                 'authNo' : authNoFiled.value
             }).then(r => {
