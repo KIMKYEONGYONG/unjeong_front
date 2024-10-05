@@ -77,9 +77,10 @@ return static function(App $app) {
         });
 
         $front->group('/menu7',function (RouteCollectorProxy $menu7){
-            $menu7->get('/login',[Menu7Controller::class,'login'])->add(GuestMiddleware::class);
-            $menu7->get('/idFind',[Menu7Controller::class,'idFind'])->add(GuestMiddleware::class);
-        });
+            $menu7->get('/login',[Menu7Controller::class,'login']);
+            $menu7->get('/idFind',[Menu7Controller::class,'idFind']);
+            $menu7->get('/passFind',[Menu7Controller::class,'passFind']);
+        })->add(GuestMiddleware::class);
 
         $front->group('/menu8',function (RouteCollectorProxy $menu8){
 
