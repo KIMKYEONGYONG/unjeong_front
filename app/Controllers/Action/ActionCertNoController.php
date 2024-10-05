@@ -10,20 +10,22 @@ use App\Entity\Member;
 use App\Enum\CertAuthMode;
 use App\Helper\HpCertificationHelper;
 use App\Services\HpCertificationService;
-use Doctrine\ORM\EntityManager;
+use App\Traits\EntityServiceTrait;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class ActionCertNoController
+readonly class ActionCertNoController
 {
+
+    use EntityServiceTrait;
+
     public function __construct(
-        private readonly HpCertificationHelper $helper,
-        private readonly HpCertificationService $hpCertificationService,
-        private readonly ResponseFormatter $responseFormatter,
-        private readonly EntityManager $entityManager,
+        private HpCertificationHelper  $helper,
+        private HpCertificationService $hpCertificationService,
+        private ResponseFormatter      $responseFormatter,
     ) {
     }
 

@@ -9,6 +9,8 @@ use App\Core\Config;
 use App\Core\Csrf;
 use App\Core\EntityManager\DefaultEntityManager;
 use App\Core\EntityManager\EntityManagerFactory;
+use App\Core\HttpClient\HttpClientFactory;
+use App\Core\HttpClient\HttpClientFactoryInterface;
 use App\Core\Session;
 use App\DataObjects\SessionConfig;
 use App\Enum\AppEnvironment;
@@ -99,6 +101,9 @@ return [
             $config,'doctrine.connections.default',  DefaultEntityManager::class
         );
     },
+    HttpClientFactoryInterface::class => static fn(ContainerInterface $container) => $container->get(
+        HttpClientFactory::class
+    ),
     'webpack_encore.entrypoint_lookup_collection' => static function(): EntrypointLookupCollectionInterface  {
         $entrypointLookup = new EntrypointLookup(DIST_PATH . '/entrypoints.json');
         $serviceLocator =  new ServiceLocator(['_default' => function () use ($entrypointLookup) {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Entity\Traits\HasTimestamps;
+use App\Entity\Traits\OnlyCreatedAtTimestamps;
 use App\Interfaces\EntityInterface;
 use Carbon\Carbon;
 use DateTime;
@@ -21,7 +21,7 @@ use Doctrine\ORM\Mapping\Table;
 #[HasLifecycleCallbacks]
 class HpAuthMember implements EntityInterface
 {
-    use HasTimestamps;
+    use OnlyCreatedAtTimestamps;
 
     #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
     private int $id;

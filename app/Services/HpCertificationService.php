@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Entity\HpAuthMember;
 use App\Interfaces\EntityInterface;
+use App\Traits\EntityServiceTrait;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Exception\NotSupported;
 use Doctrine\ORM\Exception\ORMException;
@@ -13,9 +14,8 @@ use Doctrine\ORM\OptimisticLockException;
 
 class HpCertificationService
 {
-    public function __construct(private readonly EntityManager $entityManager)
-    {
-    }
+    use EntityServiceTrait;
+
 
     /**
      * @throws OptimisticLockException
@@ -23,14 +23,14 @@ class HpCertificationService
      */
     public function authNoInsert(EntityInterface $entity): void
     {
-        $this->entityManager->persist($entity);
-        $this->entityManager->flush();
+        $this->persistFlush($entity);
     }
+
 
     /**
      * @throws NotSupported
      */
-    public function getAuthNo(string $phone ,string $authNo): ?HpAuthMember
+    public function getAuthNo(string $phone , string $authNo): ?HpAuthMember
     {
         return $this->entityManager->getRepository(HpAuthMember::class)->findOneBy(
             [
@@ -48,8 +48,7 @@ class HpCertificationService
     {
         /** @var HpAuthMember $entity */
         $entity->setIsAuth('T');
-        $this->entityManager->persist($entity);
-        $this->entityManager->flush();
+        $this->persistFlush($entity);
     }
 
     /**
