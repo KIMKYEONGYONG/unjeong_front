@@ -1,8 +1,0 @@
-{% set _currentDataTerm = request.queryparams['dateTerm'] ? : ''%}
-
-<li class="btn" id="dateTerm">
-    <dt class="{{ '' == _currentDataTerm ? 'on' : '' }} selectTerm" data-term="" data-term-type="D">전체</dt>
-    <dt class="{{ '3' == _currentDataTerm ? 'on' : '' }} selectTerm" data-term="3"  data-term-type="D">3일</dt>
-    <dt class="{{ '7' == _currentDataTerm ? 'on' : '' }} selectTerm" data-term="7"  data-term-type="D">7일</dt>
-    <dt class="{{ '30' == _currentDataTerm? 'on' : '' }} selectTerm" data-term="30"  data-term-type="D">30일</dt>
-</li>
