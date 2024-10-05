@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controllers\Action\ActionAuthController;
+use App\Controllers\Action\ActionCertNoController;
 use App\Controllers\Action\ActionClientController;
 use App\Controllers\MainController;
 use App\Controllers\Menu1Controller;
@@ -95,6 +96,11 @@ return static function(App $app) {
 
     $app->group('/action',function (RouteCollectorProxy $action){
         $action->post('/apply/client/register',[ActionClientController::class,'register']);
+
+        // 인증번호 관련
+        $action->post('/phone/authNo/request/{mode:[0-9]+}',[ActionCertNoController::class,'sendCertNumber']);
+        $action->post('/phone/authNo/check/{mode:[0-9]+}',[ActionCertNoController::class,'certNoCheck']);
+
 
     });
 

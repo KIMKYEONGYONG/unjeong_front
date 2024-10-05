@@ -1,7 +1,7 @@
 {% extends "layout.twig" %}
 {% block javascripts %}
   {{ parent() }}
-  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  {{ encore_entry_script_tags('signup') }}
 {% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
@@ -70,14 +70,17 @@
                 <!-- 인증요청시 아래 주석 해제 -->
                 <div class='input-container icon'>
                   <img src="{{ asset('dist/images/ic_lock.svg') }}" alt="" class='input-icon' />
-                  <input name="authNo" type='tel' placeholder='인증번호 6자리 입력' />
+                  <input name="authenticationNum" type='tel' placeholder='인증번호 6자리 입력' />
                 </div>
                 <div class="request-pin">재요청</div>
               </div>
 
               <div class='login-button-container'>
-                <div class='btn-primary full'>인증요청</div>
-                <div class='btn-primary full'>가입하기</dive>
+                <div class='btn-primary full' id="phoneCheck">인증발송</div>
+                 {#
+                   <div class='btn-primary full' id="phoneCheckNum">인증하기</dive>
+                   <div class='btn-primary full' id="registerBtn">가입하기</dive>
+                 #}
                 </div>
               </div>
             </div>
