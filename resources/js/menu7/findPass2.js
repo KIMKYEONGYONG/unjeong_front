@@ -94,7 +94,6 @@ $(function() {
     });
 
     passwordReset.addEventListener('click',async function(){
-        console.log('test')
         const formData = new FormData(document.querySelector('form'));
         post('/action/account/passwordReset',formData,'formData').then(response => {
             if (response.ok) {

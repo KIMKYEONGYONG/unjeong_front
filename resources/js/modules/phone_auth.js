@@ -23,7 +23,7 @@ const requestAuthNo = (
                 let data;
                 if (mode === AuthMode.CERT_AUTHNO_FIND_PWD) {
                     data = {
-                        userId : document.querySelector('input[name="id"]').value,
+                        userId : document.querySelector('input[name="userId"]').value,
                         phone : document.querySelector('input[name="phone"]').value,
                     }
                 } else {
