@@ -31,13 +31,15 @@
         {{ encore_entry_script_tags('fullpage') }}
     {% endblock %}
 
+    {% set _currentPath = request.uri.path %}
+    {% set _currentParams = request.queryparams %}
 
     <title>운정역더써밋</title>
 </head>
 
 <body>
     <!-- header -->
-    <header class="{{ request.uri.path == '/' ? 'transparent' : '' }}">
+    <header class="{{ _currentPath == '/' ? 'transparent' : '' }}">
         <div class='inner'>
             <div class='logo-container'>
                 <div class='logo-white'><a href='/'><img src='{{ asset('dist/images/logo-white.svg') }}' alt='로고/화이트' /></a></div>
@@ -45,7 +47,7 @@
             </div>
             <ul class='gnb-menu'>
                 <li class='gnb-menu-item'>
-                    <a href='/menu1/business' aria-label='운정역더써밋'>운정역더써밋</a>
+                    <a href='/menu1/business' class="{{ 'menu1' in _currentPath ? 'active' : '' }}" aria-label='운정역더써밋'>운정역더써밋</a>
                     <ul class='sub-menu'>
                         <li class='sub-menu-item'>
                             <a href='/menu1/business' aria-label='사업개요'>사업개요</a>
@@ -59,14 +61,14 @@
                     </ul>
                 </li>
                 <li class='gnb-menu-item'>
-                    <a href='/views/menu2/intro.html' aria-label='프리미엄'>프리미엄</a>
+                    <a href='/menu2/intro'  class="{{ 'menu2' in _currentPath ? 'active' : '' }}" aria-label='프리미엄'>프리미엄</a>
                     <ul class='sub-menu'>
-                        <li class='sub-menu-item'><a href='/views/menu2/intro.html' aria-label='입지소개'>입지소개</a></li>
-                        <li class='sub-menu-item'><a href='/views/menu2/premium10.html' aria-label='프리미엄10'>프리미엄10</a></li>
+                        <li class='sub-menu-item'><a href='/menu2/intro' aria-label='입지소개'>입지소개</a></li>
+                        <li class='sub-menu-item'><a href='/menu2/premium10' aria-label='프리미엄10'>프리미엄10</a></li>
                     </ul>
                 </li>
                 <li class='gnb-menu-item'>
-                    <a href='/views/menu3/complex.html' aria-label='단지안내'>단지안내</a>
+                    <a href='/views/menu3/complex.html'  class="{{ 'menu3' in _currentPath ? 'active' : '' }}" aria-label='단지안내'>단지안내</a>
                     <ul class='sub-menu'>
                         <li class='sub-menu-item'><a href='/views/menu3/complex.html' aria-label='단지배치도'>단지배치도</a></li>
                         <li class='sub-menu-item'><a href='/views/menu3/units.html' aria-label='동호수배치도'>동호수배치표</a></li>
@@ -76,14 +78,14 @@
                     </ul>
                 </li>
                 <li class='gnb-menu-item'>
-                    <a href='/views/menu4/floorplanA.html' aria-label='세대안내'>세대안내</a>
+                    <a href='/views/menu4/floorplanA.html'  class="{{ 'menu4' in _currentPath ? 'active' : '' }}" aria-label='세대안내'>세대안내</a>
                     <ul class='sub-menu'>
                         <li class='sub-menu-item'><a href='/views/menu4/floorplanA.html' aria-label='평면안내'>평면안내</a></li>
                         <li class='sub-menu-item'><a href='/views/menu4/interior.html' aria-label='인테리어'>인테리어</a></li>
                     </ul>
                 </li>
                 <li class='gnb-menu-item'>
-                    <a href='/views/menu5/news.html' aria-label='홍보센터'>홍보센터</a>
+                    <a href='/views/menu5/news.html'  class="{{ 'menu5' in _currentPath ? 'active' : '' }}" aria-label='홍보센터'>홍보센터</a>
                     <ul class='sub-menu'>
                         <li class='sub-menu-item'><a href='/views/menu5/news.html' aria-label='언론보도'>언론보도</a></li>
                         <li class='sub-menu-item'><a href='/views/menu5/videos.html' aria-label='홍보동영상'>홍보동영상</a></li>
@@ -91,7 +93,7 @@
                     </ul>
                 </li>
                 <li class='gnb-menu-item'>
-                    <a href='/views/menu6/notice.html' aria-label='고객센터'>고객센터</a>
+                    <a href='/views/menu6/notice.html'  class="{{ 'menu6' in _currentPath ? 'active' : '' }}"  aria-label='고객센터'>고객센터</a>
                     <ul class='sub-menu'>
                         <li class='sub-menu-item'><a href='/views/menu6/notice.html' aria-label='공지사항'>공지사항</a></li>
                         <li class='sub-menu-item'><a href='/views/menu6/reg.html' aria-label='관심고객등록'>관심고객등록</a></li>
@@ -99,7 +101,7 @@
                 </li>
             </ul>
             <div class='utils'>
-                <a href='/views/menu7/login.html' class='member-link' aria-label='조합원전용'><img src='{{ asset('dist/images/bi_person-fill.svg') }}' alt='사람아이콘' />
+                <a href='/views/menu7/login.html'  class="{{ 'menu7' in _currentPath ? 'active' : '' }}" class='member-link' aria-label='조합원전용'><img src='{{ asset('dist/images/bi_person-fill.svg') }}' alt='사람아이콘' />
                     조합원전용</a>
                 <a href='tel:1533-7720' class='tel-link'>
                     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'
@@ -225,8 +227,6 @@
         </a>
     </div>
     <!-- quickmenu -->
-    {% set _currentPath = request.uri.path %}
-    {% set _currentParams = request.queryparams %}
     {% block content %}
          {% block mobile_sub_menu %}{% endblock %}
     {% endblock %}
