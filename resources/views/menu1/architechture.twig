@@ -10,29 +10,19 @@
 
     {% include "menu1/pc_page_nav.twig" %}
 
-    <div class='mobile-sub-menu'>
-        <a href='/' class='home-link'><img src='{{ asset('dist/images/ic_home.svg') }}' alt='홈 링크 이미지' /></a>
-        <div class='main-menu-container'>
-            <button class='main-menu-btn' id='mainMenuBtn'>운정역더써밋 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
-            <ul class='list-menu' id='mainMenuList'>
-                <li><a href='/views/menu1/business.html'>운정역더써밋</a></li>
-                <li><a href='/views/menu2/intro.html'>프리미엄</a></li>
-                <li><a href='/views/menu3/complex.html'>단지안내</a></li>
-                <li><a href='/views/menu4/floorplanA.html'>세대안내</a></li>
-                <li><a href='/views/menu5/news.html'>홍보센터</a></li>
-                <li><a href='/views/menu6/notice.html'>고객센터</a></li>
-                <li><a href='/views/menu7/login.html'>조합원 전용</a></li>
-            </ul>
-        </div>
-        <div class='sub-menu-container'>
-            <button class='sub-menu-btn' id='subMenuBtn'>조감도/투시도 <img src='/images/ic_carat_down.svg' alt='' /></button>
-            <ul class='list-menu' id='subMenuList'>
-                <li><a href="/views/menu1/business.html">사업개요</a></li>
-                <li><a href="/views/menu1/architechture.html">조감도/투시도</a></li>
-                <li><a href="/views/menu1/location.html">오시는길</a></li>
-            </ul>
-        </div>
-    </div>
+
+    {% block mobile_sub_menu %}
+        {% embed 'mobile_sub_menu.twig' %}
+            {% block sub_menu %}
+                <div class='sub-menu-container'>
+                    <button class='sub-menu-btn' id='subMenuBtn'>조감도/투시도 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+                    {% include "menu1/mo_sub_menu.twig" %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+
+
 
     <div class="page-nav-mobile-container">
         <div class="page-nav-mobile">
@@ -53,14 +43,15 @@
 
         <div class="air_view" data-aos="fade-up">
             <div class="line"></div>
-            <img class="v1 on" src="{{ asset('dist/images/ic_close.svg') }}/images/arch-img1.png" alt="">
-            <img class="v2" src="/images/arch-section1-slide2.png" alt="">
-            <img class="v3" src="/images/arch-img3.png" alt="">
+            <img class="v1 on" src="{{ asset('dist/images/arch-img1.png') }}" alt="">
+            <img class="v2" src="{{ asset('dist/images/arch-section1-slide2.png') }}" alt="">
+            <img class="v3" src="{{ asset('dist/images/arch-img3.png') }}" alt="">
         </div>
         <ul class="thumbnails" data-aos="fade-up">
-            <li data-id="v1" class="on"><img src="/images/arch-img1.png" alt=""></li>
-            <li data-id="v2"><img src="/images/arch-section1-slide2.png" alt="" ></li>
-            <li data-id="v3"><img src="/images/arch-img3.png" alt=""></li>
+
+            <li data-id="v1" class="on"><img src="{{ asset('dist/images/arch-img1.png') }}" alt=""></li>
+            <li data-id="v2"><img src="{{ asset('dist/images/arch-section1-slide2.png') }}" alt="" ></li>
+            <li data-id="v3"><img src="{{ asset('dist/images/arch-img3.png') }}" alt=""></li>
         </ul>
 
         <div class="division-line-subpage" data-aos="fade-up"></div>

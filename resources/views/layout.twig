@@ -227,7 +227,9 @@
     <!-- quickmenu -->
     {% set _currentPath = request.uri.path %}
     {% set _currentParams = request.queryparams %}
-    {% block content %}{% endblock %}
+    {% block content %}
+         {% block mobile_sub_menu %}{% endblock %}
+    {% endblock %}
 
 </body>
 </html>
