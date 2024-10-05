@@ -6,6 +6,7 @@ use App\Controllers\MainController;
 use App\Controllers\Menu1Controller;
 use App\Controllers\Menu2Controller;
 use App\Controllers\Menu3Controller;
+use App\Controllers\Menu4Controller;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
 use Slim\App;
@@ -40,6 +41,17 @@ return static function(App $app) {
             $menu3->get('/community',[Menu3Controller::class,'community']);
             $menu3->get('/garden',[Menu3Controller::class,'garden']);
             $menu3->get('/system',[Menu3Controller::class,'system']);
+        });
+
+        $front->group('/menu4',function (RouteCollectorProxy $menu4){
+            $menu4->get('/floorplanA',[Menu4Controller::class,'floorplanA']);
+            $menu4->get('/floorplanB',[Menu4Controller::class,'floorplanB']);
+            $menu4->get('/floorplanB1',[Menu4Controller::class,'floorplanB1']);
+            $menu4->get('/interior',[Menu4Controller::class,'interior']);
+            $menu4->get('/interior-bed',[Menu4Controller::class,'interior_bed']);
+            $menu4->get('/interior-dining',[Menu4Controller::class,'interior_dining']);
+            $menu4->get('/interior-bath',[Menu4Controller::class,'interior_bath']);
+            $menu4->get('/interior-etc',[Menu4Controller::class,'interior_etc']);
         });
 
     });
