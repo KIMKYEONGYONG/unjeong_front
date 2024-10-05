@@ -6,13 +6,13 @@ import {post} from "../modules/ajax";
 
 $(function() {
 
-
     const phoneCheck = document.getElementById('phoneCheck');
     const authenticationNum = document.querySelector('input[name="authenticationNum"]');
     const phone = document.querySelector('input[name="phone"]');
     const phoneCheckNum = document.getElementById('phoneCheckNum');
     const resend = document.getElementById('resend');
     const registerBtn = document.getElementById('registerBtn');
+    const passwordReset = document.getElementById('passwordReset');
 
     if (isDefined(phoneCheck)) {
         requestAuthNo(
@@ -20,7 +20,7 @@ $(function() {
             phoneCheckNum,
             phone,
             authenticationNum,
-            AuthMode.CERT_AUTHNO_FIND_ID
+            AuthMode.CERT_AUTHNO_FIND_PWD
         );
 
         phoneCheck.addEventListener('click',async function(){
@@ -36,7 +36,7 @@ $(function() {
             phoneCheckNum,
             phone,
             authenticationNum,
-            AuthMode.CERT_AUTHNO_FIND_ID
+            AuthMode.CERT_AUTHNO_FIND_PWD
         );
 
         resend.addEventListener('click',async function(){
@@ -78,22 +78,32 @@ $(function() {
         post('/action/account/findId',formData,'formData').then(response => {
             if (response.ok) {
                 response.json().then(json =>{
-                    $('#findId1').hide();
+                    $('#findPass1').hide();
 
                     const userId = json.userId;
-                    const createdAt = json.createdAt;
 
-                    $('#findId2 #id1').val(userId); // Set the value of the radio input
-                    $('#findId2 label[for="id1"]').html(userId); // Set the userId inside the label
-                    $('#findId2 .reg-info').html(createdAt); //
+                    $('#findPass2 .green').html(userId); // Set the value of the radio input
+                    $('#findPass2 input[name="userId"]').val(userId); // Set the value of the radio input
 
-                    $('#findId2').show();
+                    $('#findPass2').show();
                 })
 
 
             }
         });
     });
+
+    passwordReset.addEventListener('click',async function(){
+        console.log('test')
+        const formData = new FormData(document.querySelector('form'));
+        post('/action/account/passwordReset',formData,'formData').then(response => {
+            if (response.ok) {
+                location.href = "/menu7/login"
+            }
+        });
+    })
+
+
 
 
 });

@@ -33,4 +33,10 @@ class Menu7Controller extends Controller
     {
         return $this->render($this->twig,$response,'menu7/passFind.twig');
     }
+
+    public function passFind2(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu7/passFind2.twig');
+    }
+
 }

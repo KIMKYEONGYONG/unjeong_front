@@ -80,6 +80,8 @@ return static function(App $app) {
             $menu7->get('/login',[Menu7Controller::class,'login']);
             $menu7->get('/idFind',[Menu7Controller::class,'idFind']);
             $menu7->get('/passFind',[Menu7Controller::class,'passFind']);
+            $menu7->get('/passFind2',[Menu7Controller::class,'passFind2']);
+            $menu7->get('/passFindRest',[Menu7Controller::class,'passFindRest']);
         })->add(GuestMiddleware::class);
 
         $front->group('/menu8',function (RouteCollectorProxy $menu8){
@@ -105,6 +107,8 @@ return static function(App $app) {
         $action->group('/account',function (RouteCollectorProxy $account){
             $account->post('/create',[ActionAccountController::class,'register']);
             $account->post('/findId',[ActionAccountController::class,'findId']);
+            $account->post('/findExist',[ActionAccountController::class,'findExist']);
+            $account->post('/passwordReset',[ActionAccountController::class,'passwordReset']);
         });
 
     });

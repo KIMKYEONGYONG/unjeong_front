@@ -1,7 +1,7 @@
 {% extends "layout.twig" %}
 {% block javascripts %}
   {{ parent() }}
-  {{ encore_entry_script_tags('findId')}}
+  {{ encore_entry_script_tags('findPass')}}
 {% endblock %}
 {% block content %}
   {% include "menu7/top_menu.twig" %}
@@ -28,7 +28,7 @@
   <div class='page-content-container'>
     {% include "menu7/tab_page_login.twig" %}
 
-    <form action=''>
+    <form method="post">
       <div class='login-container'>
         <img src="{{ asset('dist/images/business-logo.svg') }}" alt="써밋 로고" class="member-logo" />
         <div class='login-page-title'>비밀번호를 찾고자하는 아이디를 입력해주세요.</div>
@@ -36,12 +36,12 @@
         <div class="login-input-container medium single">
           <div class='input-container icon'>
             <img src='{{ asset('dist/images/ic_person.svg') }}' alt='' class='input-icon' />
-            <input type='text' placeholder='아이디' class="id" />
+            <input name="userId" type='text' placeholder='아이디' class="id" />
           </div>	
         </div>
 
         <div class='login-button-container'>
-          <div class='btn-primary full'>다음</div>
+          <div class='btn-primary full' id="registerBtn">다음</div>
         </div>
 
         <div class='login-sub-menu'>

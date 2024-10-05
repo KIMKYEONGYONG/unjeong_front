@@ -6,10 +6,13 @@ namespace App\Controllers\Action;
 
 use App\Core\ResponseFormatter;
 use App\Entity\Member;
+use App\Exception\ValidationException;
 use App\Interfaces\RequestValidatorFactoryInterface;
+use App\RequestValidators\RestPasswordRequestValidator;
 use App\RequestValidators\UserRequestValidator;
 use App\Services\AccountService;
 use App\Services\HpCertificationService;
+use Doctrine\ORM\Exception\NotSupported;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -41,13 +44,19 @@ class ActionAccountController
         return $response;
     }
 
+
     /**
+     * @throws OptimisticLockException
+     * @throws NotSupported
      * @throws ORMException
      */
     public function findId(Request $request, Response $response): Response
     {
         $data =   $request->getParsedBody();
         $phone = $data['phone'] ?? '';
+        if(empty($phone)){
+            throw new ValidationException("휴대폰 번호를 입력해주세요.");
+        }
         /* @var Member $user */
         $user = $this->service->findByPhone($phone);
         $this->certificationService->phoneForAuthNoRemoveAll($phone);
@@ -57,5 +66,34 @@ class ActionAccountController
                 'createdAt' => $user->getCreatedAt()->format('Y-m-d H:i:s'),
             ]
         );
+    }
+
+
+    public function findExist(Request $request, Response $response): Response
+    {
+        $data =   $request->getParsedBody();
+        $userId = $data['userId'] ?? '';
+        if(empty($userId)){
+            throw new ValidationException("아이디를 입력해주세요.");
+        }
+        /* @var Member $user */
+        $user = $this->service->existUserId($userId);
+
+        if(!$user){
+            throw new ValidationException("해당 아이디는 가입하지 않으셨습니다.");
+        }
+
+
+        return  $response;
+    }
+
+    public function passwordReset(Request $request ,Response $response): Response
+    {
+        $data = $this->requestValidatorFactory->make(RestPasswordRequestValidator::class)->validate(
+            $request->getParsedBody()
+        );
+        $this->service->passwordReset($data['user'],$data['pwd']);
+
+        return $response;
     }
 }

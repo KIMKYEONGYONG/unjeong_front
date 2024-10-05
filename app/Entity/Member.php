@@ -63,6 +63,12 @@ class Member implements AuthUserInterface, EntityInterface
         return $this->password;
     }
 
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+
     public function getBirthDay(): string
     {
         return $this->birthDay;

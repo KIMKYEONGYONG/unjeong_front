@@ -51,4 +51,10 @@ class AccountService
     {
        return  $this->entityManager->getRepository(Member::class)->findOneBy(['phone' => $phone]);
     }
+
+
+    public function existUserId(String $userId): bool
+    {
+        return $this->userRepository->isExistenceId($userId);
+    }
 }

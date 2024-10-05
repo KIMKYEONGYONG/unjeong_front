@@ -17,6 +17,7 @@ Encore
     .addEntry("login","./resources/js/menu7/login.js")
     .addEntry("findId","./resources/js/menu7/findId.js")
     .addEntry("findPass","./resources/js/menu7/findPass.js")
+    .addEntry("findPass2","./resources/js/menu7/findPass2.js")
 
 
     .splitEntryChunks()
