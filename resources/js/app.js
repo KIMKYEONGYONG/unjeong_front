@@ -6,6 +6,7 @@
  * Copyright (C) 2015 alvarotrigo.com - A project by Alvaro Trigo
  */
 import "../css/styles.css";
+import swiper from "swiper"
 
 window.$(function(){
     try {
@@ -22,13 +23,13 @@ window.$(function(){
         $('#hamburgerBtn').click(function () {
             $('.mobile-menu-container').addClass('open');
             $('body').css('overflow', 'hidden');
-            window.swiper.disable();
+            swiper.disable();
         });
 
         $('#mobile-menu-close-btn').click(function () {
             $('.mobile-menu-container').removeClass('open');
             $('body').css('overflow', 'visible');
-            window.swiper.enable();
+            swiper.enable();
         });
 
         $('.mobile-menu-bg').click(function () {
