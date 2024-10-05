@@ -24,6 +24,13 @@ class Menu7Controller extends Controller
         return $this->render($this->twig,$response,'menu7/login.twig');
     }
 
+    public function idFind(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu7/idFind.twig');
+    }
 
-
+    public function idFind2(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu7/idFind2.twig');
+    }
 }

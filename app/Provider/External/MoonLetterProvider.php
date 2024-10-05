@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class MoonLetterProvider
 {
-    private string $sendNumber = "028603800";
+    private string $sendNumber = "15337720";
 
     private string $baseUrl = "https://api.moonletter.co.kr/api/";
 
