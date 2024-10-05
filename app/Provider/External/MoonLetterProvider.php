@@ -7,12 +7,11 @@ namespace App\Provider\External;
 use App\Core\JsonFormatter;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use http\Exception\RuntimeException;
 use JetBrains\PhpStorm\ArrayShape;
 
 class MoonLetterProvider
 {
-    private string $sendNumber = "15337720";
+    private string $sendNumber = "028603800"; // TODO 운정역 으로 바꿔야 되긴 함...
 
     private string $baseUrl = "https://api.moonletter.co.kr/api/";
 
@@ -64,20 +63,16 @@ class MoonLetterProvider
     }
 
 
-
+    /**
+     * @throws GuzzleException
+     */
     public function sendMessage(array $message, string $type = 'sms'): string
     {
-        try {
-            $response = $this->getClient($type)->post('v1/' . $type . '/messages', [
-                'headers' => $this->headers,
-                'json' => $message
-            ]);
-            return $response->getBody()->getContents();
-        } catch (GuzzleException $e) {
-            error_log($e->getMessage());
-            throw new RuntimeException("test");
-        }
-
+        $response = $this->getClient($type)->post('v1/'.$type.'/messages',[
+            'headers'   => $this->headers,
+            'json' => $message
+        ]);
+        return $response->getBody()->getContents();
     }
 
 
