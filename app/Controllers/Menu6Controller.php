@@ -32,9 +32,12 @@ class Menu6Controller extends Controller
         ]);
     }
 
-    public function noticeDetail(Request $request, Response $response): Response
+    public function noticeDetail(Request $request, Response $response, array $args = []): Response
     {
-        return $this->render($this->twig, $response, 'menu6/notice-details.twig');
+        $id = isset($args['id'])? (int)$args['id'] : 0;
+        return $this->render($this->twig, $response, 'menu6/notice-details.twig',[
+            'data' => $this->boardService->getById($id),
+        ]);
     }
 
 
