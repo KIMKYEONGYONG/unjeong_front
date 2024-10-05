@@ -43,6 +43,6 @@ class AuthMiddleware implements MiddlewareInterface
                     'message' => '세션이 종료 되었습니다 다시 로그인 하시기 바랍니다'
                 ]
             ) :
-            $this->responseFactory->createResponse(302)->withHeader('Location', '/auth/login');
+            $this->responseFactory->createResponse(302)->withHeader('Location', '/menu7/login');
     }
 }

@@ -77,11 +77,11 @@ return static function(App $app) {
 
         $front->group('/menu8',function (RouteCollectorProxy $menu8){
 
-            $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms']);
-            $menu8->get('/signup',[Menu8Controller::class,'signup']);
-            $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete']);
-            $menu8->get('/member_notice/list',[Menu8Controller::class,'notice']);
-            $menu8->get('/member_notice/detail/{id:[0-9]+}',[Menu8Controller::class,'noticeDetail']);
+            $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms'])->add(GuestMiddleware::class);
+            $menu8->get('/signup',[Menu8Controller::class,'signup'])->add(GuestMiddleware::class);
+            $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete'])->add(GuestMiddleware::class);
+            $menu8->get('/member_notice/list',[Menu8Controller::class,'notice'])->add(AuthMiddleware::class);
+            $menu8->get('/member_notice/detail/{id:[0-9]+}',[Menu8Controller::class,'noticeDetail'])->add(AuthMiddleware::class);
 
         });
 
