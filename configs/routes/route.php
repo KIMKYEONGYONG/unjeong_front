@@ -80,6 +80,8 @@ return static function(App $app) {
             $menu8->get('/signup_terms',[Menu8Controller::class,'signup_terms']);
             $menu8->get('/signup',[Menu8Controller::class,'signup']);
             $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete']);
+            $menu8->get('/member_notice/list',[Menu8Controller::class,'notice']);
+            $menu8->get('/member_notice/detail/{id:[0-9]+}',[Menu8Controller::class,'noticeDetail']);
 
         });
 

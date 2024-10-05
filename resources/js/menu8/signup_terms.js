@@ -10,14 +10,18 @@ $(function() {
         if(term2 === undefined || term2 === ""){
             Swal.fire({
                 icon : "warning",
-                html : "이용약관에 동의해 주세요."
+                html : "이용약관에 동의해 주세요.",
+                confirmButtonText: '확인',
+                confirmButtonColor : '#0C6170',
             }).then();
             return;
         }
         if(term3 === undefined || term3 === ""){
             Swal.fire({
                 icon : "warning",
-                html : "개인정보 수집 및 이용동의에 동의해주세요"
+                html : "개인정보 수집 및 이용동의에 동의해주세요",
+                confirmButtonText: '확인',
+                confirmButtonColor : '#0C6170',
             }).then();
             return;
         }
