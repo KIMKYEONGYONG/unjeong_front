@@ -3558,7 +3558,7 @@ pre {
 .popup .popup-ui .left label {
   padding-bottom: 2px;
 }
-.popup .popup-ui .right button {
+.popup .popup-ui .right .popup-close-btn {
   display: flex;
   align-items: center;
   gap: 5px;
