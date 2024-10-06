@@ -56,7 +56,8 @@ $(function() {
 
     function checkPopBg(){
         const popBg = $('.popup');
-        getCookie('Cookie_UN') !== null ? popBg.hide() : popBg.show();
+        const cookie = getCookie('Cookie_UN');
+        cookie !== null ? popBg.css('display', 'none') : popBg.css('display','');
     }
 
     function setCookie(cookieName, cookieValue, cookieExpire, cookiePath, cookieDomain, cookieSecure){
