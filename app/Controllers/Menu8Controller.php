@@ -46,7 +46,7 @@ class Menu8Controller extends Controller
     public function notice(Request $request, Response $response): Response
     {
         return $this->render($this->twig,$response,'menu8/member-notice.twig',[
-            'lists' => $this->memberBoardService->list($request, BoardType::Notice),
+            'lists' => $this->memberBoardService->list($request, BoardType::Notice, 'front'),
         ]);
     }
 

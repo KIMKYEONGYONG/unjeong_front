@@ -28,7 +28,7 @@ class Menu6Controller extends Controller
     public function notice(Request $request, Response $response): Response
     {
         return $this->render($this->twig,$response,'menu6/notice.twig',[
-            'lists' => $this->boardService->list($request, BoardType::Notice),
+            'lists' => $this->boardService->list($request, BoardType::Notice, 'front'),
         ]);
     }
 
