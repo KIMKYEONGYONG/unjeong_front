@@ -81,6 +81,9 @@ $(function() {
         return cookieValue;
     }
 
-
+    // 닫기버튼 클릭 이벤트
+    $('#closePopupBtn').click(function () {
+        $('#popup').hide();
+    });
 
 });
