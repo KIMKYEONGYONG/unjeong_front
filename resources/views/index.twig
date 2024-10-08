@@ -1,5 +1,17 @@
 {% extends "layout.twig" %}
 {% block content %}
+  <div class='popup' id="popup">
+    <img src='{{ asset('dist/images/popup-desktop.png') }}' alt='' class='desktop' />
+    <img src='{{ asset('dist/images/popup-mobile.png') }}' alt='' class='mobile' />
+    <div class='popup-ui'>
+      <div class='left'>
+        <label class="check" for='check'>오늘 하루 열지 않기</label>
+      </div>
+      <div class='right'>
+        <div id='closePopupBtn' class="popup-close-btn ">팝업 닫기 <img src='{{ asset('dist/images/ic_close_black.svg') }}' alt='' /></div>
+      </div>
+    </div>
+  </div>
   <div id='fullpage'>
     <div class='section'>
       <div class='inner-section section1'>

@@ -51,18 +51,6 @@
 
 <body>
 <script src="https://ad.api.adwiser.kr/tracker/site/?code=2df45a57d21292dd55af237a3d936807" async></script>
-<div class='popup' id="popup">
-    <img src='{{ asset('dist/images/popup-desktop.png') }}' alt='' class='desktop' />
-    <img src='{{ asset('dist/images/popup-mobile.png') }}' alt='' class='mobile' />
-    <div class='popup-ui'>
-        <div class='left'>
-            <label class="check" for='check'>오늘 하루 열지 않기</label>
-        </div>
-        <div class='right'>
-            <div id='closePopupBtn' class="popup-close-btn ">팝업 닫기 <img src='{{ asset('dist/images/ic_close_black.svg') }}' alt='' /></div>
-        </div>
-    </div>
-</div>
 <!-- header -->
 <header class="{{ _currentPath == '/' ? 'transparent' : '' }}">
     <div class='inner'>
