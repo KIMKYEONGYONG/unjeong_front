@@ -93,6 +93,8 @@ return static function(App $app) {
             $menu8->get('/signup_complete',[Menu8Controller::class,'signup_complete']);
             $menu8->get('/member_notice/list',[Menu8Controller::class,'notice'])->add(AuthMiddleware::class);
             $menu8->get('/member_notice/detail/{id:[0-9]+}',[Menu8Controller::class,'noticeDetail'])->add(AuthMiddleware::class);
+            $menu8->get('/member_info_open/list',[Menu8Controller::class,'infoOpen'])->add(AuthMiddleware::class);
+            $menu8->get('/member_info_open/detail/{id:[0-9]+}',[Menu8Controller::class,'infoOpenDetail'])->add(AuthMiddleware::class);
 
         });
 

@@ -58,5 +58,23 @@ class Menu8Controller extends Controller
         ]);
     }
 
+    /**
+     * @throws NotSupported
+     */
+    public function infoOpen(Request $request, Response $response): Response
+    {
+        return $this->render($this->twig,$response,'menu8/member-info_open.twig',[
+            'lists' => $this->memberBoardService->list($request, BoardType::InfoOpen, 'front'),
+        ]);
+    }
+
+    public function infoOpenDetail(Request $request, Response $response, array $args = []): Response
+    {
+        $id = isset($args['id'])? (int)$args['id'] : 0;
+        return $this->render($this->twig, $response, 'menu8/member-info_open-detail.twig',[
+            'data' => $this->memberBoardService->getById($id),
+        ]);
+    }
+
 
 }

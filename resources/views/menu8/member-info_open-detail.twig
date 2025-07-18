@@ -1,0 +1,45 @@
+{% extends "layout.twig" %}
+{% block content %}
+  {% include "menu7/top_menu.twig" %}
+
+  {% block mobile_sub_menu %}
+    {% embed 'mobile_sub_menu.twig' %}
+      {% block sub_main_btn %}
+        {% include "menu7/mo_sub_main_btn.twig" %}
+      {% endblock %}
+      {% block sub_menu %}
+        <div class='sub-menu-container'>
+          <button class='sub-menu-btn' id='subMenuBtn'>조합원전용 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+          {% include "menu7/mo_sub_menu.twig" %}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+
+  <div class='page-nav-mobile-container'>
+    <div class='page-nav-mobile'>정보공개</div>
+  </div>
+
+  <div class='page-content-container'>
+    <div class="notice-page-title">
+      <img src="{{ asset('dist/images/ic_notice.svg') }}" alt="써밋 로고" />
+      운정역더써밋 정보공개
+    </div>
+
+    <div class="notice-details-container">
+      <div class="header">
+        <div class="title">{{ data.subject }}</div>
+        <div class="date"><span>작성일 : </span>{{ list.createdAt | date('Y-m-d H:i:s') }}</div>
+      </div>
+      <div class="notice-textarea">
+        {{ data.content | raw }}
+      </div>
+      <div class="page-footer">
+        <a href="/menu8/member_info_open/list" class="btn-primary">목록</a>
+      </div>
+    </div>
+    <!-- page content -->
+  </div>
+  {% include "footer.twig" %}
+
+{% endblock %}

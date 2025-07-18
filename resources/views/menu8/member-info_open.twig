@@ -1,0 +1,52 @@
+{% extends "layout.twig" %}
+{% block content %}
+  {% include "menu7/top_menu.twig" %}
+
+  {% block mobile_sub_menu %}
+    {% embed 'mobile_sub_menu.twig' %}
+      {% block sub_main_btn %}
+        {% include "menu7/mo_sub_main_btn.twig" %}
+      {% endblock %}
+      {% block sub_menu %}
+        <div class='sub-menu-container'>
+          <button class='sub-menu-btn' id='subMenuBtn'>조합원전용 <img src='{{ asset('dist/images/ic_carat_down.svg') }}' alt='' /></button>
+          {% include "menu7/mo_sub_menu.twig" %}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+
+  <div class='page-nav-mobile-container'>
+    <div class='page-nav-mobile'>공지사항</div>
+  </div>
+
+  <div class='page-content-container'>
+    {% include "menu7/tab_page_login.twig" %}
+    <div class="notice-page-title">
+      <img src="{{ asset('dist/images/ic_notice.svg') }}" alt="써밋 로고" />
+      운정역더써밋 정보공개
+    </div>
+
+    <div class="flex-table">
+      <div class="row heading">
+        <div class="cell number">번호</div>
+        <div class="cell">제목</div>
+        <div class="cell date">등록일</div>
+      </div>
+      {% for list in lists.items %}
+        <div class="row">
+          <!--- 목록없음 --->
+          <div class="cell number">{{ list_no(lists.total,lists.page,lists.limit,loop.index0) }}</div>
+          <div class="cell title"><a href="/menu8/member_info_open/detail/{{ list.id }}">{{ list.subject }}</a></div>
+          <div class="cell date">{{ list.createdAt | date('Y-m-d H:i:s') }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    {% include "paginator.twig" %}
+  </div>
+  <!-- page content -->
+
+  <
+  {% include "footer.twig" %}
+
+{% endblock %}
