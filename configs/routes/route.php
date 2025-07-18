@@ -73,6 +73,8 @@ return static function(App $app) {
         $front->group('/menu6',function (RouteCollectorProxy $menu6){
             $menu6->get('/notice/list',[Menu6Controller::class,'notice']);
             $menu6->get('/notice/detail/{id:[0-9]+}',[Menu6Controller::class,'noticeDetail']);
+            $menu6->get('/info_open/list',[Menu6Controller::class,'infoOpen']);
+            $menu6->get('/info_open/detail/{id:[0-9]+}',[Menu6Controller::class,'infoOpenDetail']);
             $menu6->get('/reg',[Menu6Controller::class,'reg']);
         });
 

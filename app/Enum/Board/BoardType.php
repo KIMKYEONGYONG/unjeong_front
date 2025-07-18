@@ -12,6 +12,8 @@ enum BoardType: string
 
     case PromotionalVideo = 'pr_video';
 
+    case InfoOpen = 'info_open';
+
 
     public function boardName() : string
     {
@@ -19,7 +21,7 @@ enum BoardType: string
             self::Notice => '공지사항',
             self::News => '언론보도',
             self::PromotionalVideo => '홍보 동영상',
+            self::InfoOpen => '정보공개'
         };
     }
-
 }
